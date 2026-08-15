@@ -7,7 +7,7 @@ export default function TopBar() {
       <div className='left-side'>
         <div className='top-bar-logo-container'>
           <img className='top-bar-logo' src='/icon/fm-gray-logo-icon.svg' alt='Logo do Portfólio'/>
-          <h1>Fábio Marques</h1>
+          <h1>Fábio Marques - Portfólio</h1>
         </div>
       </div>
 

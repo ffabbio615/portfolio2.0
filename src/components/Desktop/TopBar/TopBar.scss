@@ -3,11 +3,14 @@
 .top-bar{
     width: 100%;
     height: 22px;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
     display: flex;
-    background-color: rgba($neutral-color-light-gray, 1);
-    box-shadow: 0 4px 24px rgba($neutral-color-dark-gray, 0.7);
     padding-inline: 20px;
     align-items: center;
+    background-color: rgba($neutral-color-light-gray, 1);
+    box-shadow: 0 4px 24px rgba($neutral-color-dark-gray, 0.7);
 
     .left-side{
         width: 45%;

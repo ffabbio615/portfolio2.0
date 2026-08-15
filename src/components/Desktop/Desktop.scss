@@ -1,0 +1,8 @@
+@use '../../App.scss' as *;
+
+.desktop{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}

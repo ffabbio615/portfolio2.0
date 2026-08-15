@@ -17,6 +17,11 @@ $neutral-color-medium-gray: rgb(100,100,100);
 $neutral-color-dark-gray: rgb(50,50,50);
 $neutral-color-black: rgb(30, 30, 30);
 
+//WINDOW BUTTONS COLORS
+$red-button-color: rgb(240, 0, 0);
+$green-button-color: rgb(0, 200, 0);
+$yellow-button-color: rgb(200, 200, 0);
+
 
 //FONT San Francisco (SF)
 @font-face{
@@ -125,4 +130,13 @@ $fblack: 900;
 @mixin font-config($weight, $size, $type, $color, $color-opacity) {
   font: $weight $size $type;
   color: rgba($color, $color-opacity);
+}
+
+@mixin default-system-text(){
+    letter-spacing: 1.2px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 2px 5px rgba($neutral-color-black, 0.6);
+    padding: 1px 4px 1px 4px;
+    border-radius: 4px;
 }
