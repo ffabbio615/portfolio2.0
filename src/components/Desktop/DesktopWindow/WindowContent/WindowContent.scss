@@ -1,0 +1,12 @@
+@use '../../../../App.scss' as *;
+
+.window-content {
+    flex: 1;
+    height: calc(100% - 48px);
+    background-color: rgba($neutral-color-dark-gray, 0.2);
+    overflow-y: auto;
+}
+
+.window-content-minimized{
+    display: none;
+}

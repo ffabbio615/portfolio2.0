@@ -5,7 +5,7 @@ import FolderIcon from "./FolderIcon/FolderIcon";
 import DesktopWindow from "./DesktopWindow/DesktopWindow";
 import Dock from "./Dock/Dock";
 import Wallpaper from "./Wallpaper/Wallpaper";
-import type { Position } from "./DesktopWindow/DesktopWindow.types";
+import type { Position, WindowData } from "./DesktopWindow/DesktopWindow.types";
 
 const WINDOW_POSITION_STORAGE_KEY = "desktop-window-position";
 
@@ -27,10 +27,11 @@ export default function Desktop() {
     const desktopRef = useRef<HTMLElement>(null);
 
     const [selectedId, setSelectedId] = useState<string | null>(null);
+
     const [folders, setFolders] = useState([
         {
-            id: "projects",
-            name: "WORK",
+            id: "hobbies",
+            name: "Hobbies",
             icon: "/icon/folder-icon.svg",
             position: {
                 x: 20,
@@ -38,22 +39,60 @@ export default function Desktop() {
             }
         },
         {
-            id: "documents",
-            name: "Work Project 2",
+            id: "music",
+            name: "Músicas",
             icon: "/icon/folder-icon.svg",
             position: {
                 x: 20,
                 y: 180
             }
+        },
+        {
+            id: "movies",
+            name: "Filmes",
+            icon: "/icon/folder-icon.svg",
+            position: {
+                x: 20,
+                y: 310
+            }
+        },
+        {
+            id: "trips",
+            name: "VIAGENS",
+            icon: "/icon/folder-icon.svg",
+            position: {
+                x: 20,
+                y: 440
+            }
+        },
+        {
+            id: "events",
+            name: "Eventos",
+            icon: "/icon/folder-icon.svg",
+            position: {
+                x: 150,
+                y: 50
+            }
+        },
+        {
+            id: "testimonials",
+            name: "DEPOIMENTOS",
+            icon: "/icon/folder-icon.svg",
+            position: {
+                x: 150,
+                y: 180
+            }
         }
     ]);
-    const [windows, setWindows] = useState([
-        {
-            id: "projects",
-            title: "Projetos",
-            icon: "/icon/folder-icon.svg",
-            position: getSavedWindowPosition(),
-        }
+
+    const [windows, setWindows] = useState<WindowData[]>([
+        // {
+        //     id: "w-projects",
+        //     title: "Projetos",
+        //     icon: "/icon/folder-icon.svg",
+        //     position: getSavedWindowPosition(),
+        //     index: 1,
+        // }
     ]);
 
     const handleClick = (id: string) => {
@@ -61,7 +100,38 @@ export default function Desktop() {
     };
 
     const handleDoubleClick = (id: string) => {
-        console.log("Abrindo", id);
+        const folder = folders.find(f => f.id === id);
+
+        if (!folder) return;
+
+        if(windows.find(w => w.id === `w-${id}`)) return;
+
+        setWindows(prev => {
+            const lastWindow = prev[prev.length - 1];
+
+            const newPosition = lastWindow?.position
+                ? {
+                    x: lastWindow.position.x + 30,
+                    y: lastWindow.position.y + 30,
+                }
+                : getSavedWindowPosition();
+
+            const reorganizedWindows = prev.map((window, index) => ({
+                ...window,
+                index: index + 1,
+            }));
+
+            return [
+                ...reorganizedWindows,
+                {
+                    id: `w-${folder.id}`,
+                    title: folder.name,
+                    icon: folder.icon,
+                    position: newPosition,
+                    index: reorganizedWindows.length + 1,
+                },
+            ];
+        });
     };
 
     const handleMove = ( id: string,  position: { x: number; y: number } ) => {
@@ -77,6 +147,59 @@ export default function Desktop() {
                     : folder
             )
         );
+    };
+
+    const handleWindowFront = (id: string) => {
+        setSelectedId(id);
+
+        setWindows(prev => {
+            const clickedWindow = prev.find(window => window.id === id);
+
+            if (!clickedWindow) return prev;
+
+            // Se já estiver na frente, não precisa reorganizar
+            if (clickedWindow.index === prev.length) {
+                return prev;
+            }
+
+            return [
+                ...prev
+                    .filter(window => window.id !== id)
+                    .sort((a, b) => a.index - b.index)
+                    .map((window, index) => ({
+                        ...window,
+                        index: index + 1,
+                    })),
+
+                {
+                    ...clickedWindow,
+                    index: prev.length,
+                },
+            ];
+        });
+    };
+
+    const handleWindowMinimize = (id: string) => {
+        setWindows(prev => {
+            const minimizedWindow = prev.find(window => window.id === id);
+
+            if (!minimizedWindow) return prev;
+
+            return [
+                {
+                    ...minimizedWindow,
+                    index: 1,
+                },
+
+                ...prev
+                    .filter(window => window.id !== id)
+                    .sort((a, b) => a.index - b.index)
+                    .map((window, index) => ({
+                        ...window,
+                        index: index + 2,
+                    })),
+            ];
+        });
     };
 
     const handleWindowMove = (
@@ -97,6 +220,12 @@ export default function Desktop() {
         localStorage.setItem(
             WINDOW_POSITION_STORAGE_KEY,
             JSON.stringify(position)
+        );
+    };
+
+    const handleWindowClose = (id: string) => {
+        setWindows(prev =>
+            prev.filter(window => window.id !== id)
         );
     };
 
@@ -125,15 +254,21 @@ export default function Desktop() {
                 title={window.title}
                 icon={window.icon}
                 position={window.position}
+                index={window.index}
                 selected={selectedId === window.id}
+                isFront={window.index === windows.length}
                 onClick={handleClick}
-                onDoubleClick={handleDoubleClick}
+                onDoubleClick={handleWindowFront}
+                onMinimize={handleWindowMinimize}
                 onMove={handleWindowMove}
+                onPointerDown={handleWindowFront}
+                onClose={handleWindowClose}
                 desktopRef={desktopRef}
             />
         ))}
 
         <Dock />
+
         <Wallpaper />
     </main>
   );
