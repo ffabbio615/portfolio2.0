@@ -1,11 +1,11 @@
 import "./DesktopWindow.scss";
 import { useRef, useState } from "react";
 import { useDraggable } from "../../../hooks/useDraggable";
-import type { WindowProps, Position, WindowMode } from "./DesktopWindow.types";
+import type { WindowProps, Position } from "./DesktopWindow.types";
 import WindowSidebar from "./WindowSidebar/WindowSidebar";
 import WindowContent from "./WindowContent/WindowContent";
 
-export default function DesktopWindow({id, title, icon, position, index, selected, isFront, onClick, onDoubleClick, onMinimize, onMove, onPointerDown, onClose, desktopRef,}: WindowProps){
+export default function DesktopWindow({id, title, icon, position, index, windowMode, selected, isFront, onClick, onDoubleClick, onMinimize, onMove, onPointerDown, onClose, desktopRef,}: WindowProps){
 
     const windowRef = useRef<HTMLElement>(null);
 
@@ -44,9 +44,6 @@ export default function DesktopWindow({id, title, icon, position, index, selecte
         handlePointerDown(event, currentPosition);
     };
 
-    const [windowMode, setWindowMode] = useState<WindowMode>("windowed");
-
-    
 
     return (
         <section 
@@ -63,8 +60,7 @@ export default function DesktopWindow({id, title, icon, position, index, selecte
                 onPointerMove={windowMode === "windowed" ? (e)=> {handlePointerMove(e);} : undefined} 
                 onPointerUp={handlePointerUp} 
                 onClick={(e: React.MouseEvent<HTMLElement>) => {e.stopPropagation(); setIsMoving(false); if (!hasMoved.current) {onClick?.(id);}}}
-                // onDoubleClick={() => setWindowMode((currentMode) => currentMode === "windowed" ? "maximized" : "windowed")}
-                onDoubleClick={()=> {onDoubleClick(id); setWindowMode((currentMode) => currentMode === "windowed" ? "maximized" : "windowed");}}
+                onDoubleClick={()=> {onDoubleClick?.(id);}}
             >
 
                 <div className="window-title">
@@ -74,16 +70,16 @@ export default function DesktopWindow({id, title, icon, position, index, selecte
 
                 <div className="window-behavior-buttons">
                     <button className="behavior-button" title={windowMode !== "minimized" ? "Minimizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()}
-                    onClick={(e) => {e.stopPropagation(); onMinimize(id); setWindowMode((currentMode) => currentMode !== "minimized" ? "minimized" : "windowed");}}>
+                    onClick={(e) => {e.stopPropagation(); onMinimize(id); }}>
                         <img src={"/icon/yellow-circle-icon.svg"} alt="Ícone de minimizar a janela" />
                     </button>
                     
                     <button className="behavior-button" title={windowMode === "windowed" ? "Maximizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()} 
-                    onClick={(e) => {e.stopPropagation(); onDoubleClick(id); setWindowMode((currentMode) => currentMode === "windowed" ? "maximized" : "windowed");}}>
+                    onClick={(e) => {e.stopPropagation(); onDoubleClick?.(id);}}>
                         <img src={"/icon/green-circle-icon.svg"} alt="Ícone de maximizar a janela" />
                     </button>
                     
-                    <button className="behavior-button" title={"Fechar"} onPointerDown={(e) => e.stopPropagation()} onClick={(e)=> {e.stopPropagation(); setWindowMode("closed"); setTimeout(()=> onClose(id), 500);}}>
+                    <button className="behavior-button" title={"Fechar"} onPointerDown={(e) => e.stopPropagation()} onClick={(e)=> {e.stopPropagation(); onClose(id);}}>
                         <img src={"/icon/red-circle-icon.svg"} alt="Ícone de fechar a janela" />
                     </button>
                 </div>

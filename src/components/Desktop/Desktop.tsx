@@ -6,6 +6,7 @@ import DesktopWindow from "./DesktopWindow/DesktopWindow";
 import Dock from "./Dock/Dock";
 import Wallpaper from "./Wallpaper/Wallpaper";
 import type { Position, WindowData } from "./DesktopWindow/DesktopWindow.types";
+import WindowsDock from './WindowsDock/WindowsDock';
 
 const WINDOW_POSITION_STORAGE_KEY = "desktop-window-position";
 
@@ -129,6 +130,7 @@ export default function Desktop() {
                     icon: folder.icon,
                     position: newPosition,
                     index: reorganizedWindows.length + 1,
+                    windowMode: "windowed",
                 },
             ];
         });
@@ -179,8 +181,40 @@ export default function Desktop() {
         });
     };
 
+    const handleWindowDoubleClick = (id: string) => {
+        setWindows(prev =>
+            prev.map(window =>
+                window.id === id
+                    ? {
+                        ...window,
+                        windowMode:
+                            window.windowMode === "maximized"
+                                ? "windowed"
+                                : "maximized",
+                    }
+                    : window
+            )
+        );
+
+        const window = windows.find(window => window.id === id);
+
+        if(window.windowMode === "windowed") handleWindowFront(id);
+    };
+
     const handleWindowMinimize = (id: string) => {
-        setWindows(prev => {
+
+        setWindows(prev =>
+            prev.map(window =>
+                window.id === id
+                    ? {
+                        ...window,
+                        windowMode: "pre-minimized",
+                    }
+                    : window
+            )
+        );
+
+        setTimeout(()=> setWindows(prev => {
             const minimizedWindow = prev.find(window => window.id === id);
 
             if (!minimizedWindow) return prev;
@@ -189,6 +223,7 @@ export default function Desktop() {
                 {
                     ...minimizedWindow,
                     index: 1,
+                    windowMode: "minimized",
                 },
 
                 ...prev
@@ -198,6 +233,30 @@ export default function Desktop() {
                         ...window,
                         index: index + 2,
                     })),
+            ];
+        }), 500);
+    };
+
+    const handleWindowRestore = (id: string) => {
+        setWindows(prev => {
+            const restoredWindow = prev.find(window => window.id === id);
+
+            if (!restoredWindow) return prev;
+
+            return [
+                ...prev
+                    .filter(window => window.id !== id)
+                    .sort((a, b) => a.index - b.index)
+                    .map((window, index) => ({
+                        ...window,
+                        index: index + 1,
+                    })),
+
+                {
+                    ...restoredWindow,
+                    index: prev.length,
+                    windowMode: "windowed",
+                },
             ];
         });
     };
@@ -225,8 +284,16 @@ export default function Desktop() {
 
     const handleWindowClose = (id: string) => {
         setWindows(prev =>
-            prev.filter(window => window.id !== id)
+            prev.map(window =>
+                window.id === id
+                    ? {
+                        ...window,
+                        windowMode: "closed",
+                    }
+                    : window
+            )
         );
+        setTimeout(()=> setWindows(prev => prev.filter(window => window.id !== id)), 500);
     };
 
   return (
@@ -247,25 +314,56 @@ export default function Desktop() {
             />
         ))}
 
-        {windows.map(window => (
-            <DesktopWindow
-                key={window.id}
-                id={window.id}
-                title={window.title}
-                icon={window.icon}
-                position={window.position}
-                index={window.index}
-                selected={selectedId === window.id}
-                isFront={window.index === windows.length}
-                onClick={handleClick}
-                onDoubleClick={handleWindowFront}
-                onMinimize={handleWindowMinimize}
-                onMove={handleWindowMove}
-                onPointerDown={handleWindowFront}
-                onClose={handleWindowClose}
-                desktopRef={desktopRef}
-            />
-        ))}
+        {windows
+            .filter(window => window.windowMode === "windowed" || window.windowMode === "maximized" || window.windowMode === "closed" || window.windowMode === "pre-minimized")
+            .map(window => (
+                <DesktopWindow
+                    key={window.id}
+                    id={window.id}
+                    title={window.title}
+                    icon={window.icon}
+                    position={window.position}
+                    index={window.index}
+                    windowMode={window.windowMode}
+                    selected={selectedId === window.id}
+                    isFront={window.index === windows.length}
+                    onClick={handleClick}
+                    onDoubleClick={handleWindowDoubleClick}
+                    onMinimize={handleWindowMinimize}
+                    onMove={handleWindowMove}
+                    onPointerDown={handleWindowFront}
+                    onClose={handleWindowClose}
+                    desktopRef={desktopRef}
+                />
+            ))
+        }
+
+
+        <WindowsDock>
+            {windows
+                .filter(window => window.windowMode === "minimized")
+                .map(window => (
+                    <DesktopWindow
+                        key={window.id}
+                        id={window.id}
+                        title={window.title}
+                        icon={window.icon}
+                        position={window.position}
+                        index={window.index}
+                        windowMode={window.windowMode}
+                        selected={selectedId === window.id}
+                        isFront={window.index === windows.length}
+                        onClick={handleClick}
+                        onDoubleClick={handleWindowRestore}
+                        onMinimize={handleWindowMinimize}
+                        onMove={handleWindowMove}
+                        onPointerDown={handleWindowFront}
+                        onClose={handleWindowClose}
+                        desktopRef={desktopRef}
+                    />
+                ))
+            }
+        </WindowsDock>
 
         <Dock />
 

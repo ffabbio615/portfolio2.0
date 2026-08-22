@@ -11,6 +11,7 @@ export type WindowData = {
     icon: string;
     position: Position | null;
     index: number;
+    windowMode: WindowMode;
 };
 
 export type WindowProps = {
@@ -19,6 +20,7 @@ export type WindowProps = {
     icon: string;
     position: Position | null;
     index: number,
+    windowMode: WindowMode,
     isFront: boolean;
     selected: boolean;
 
@@ -35,4 +37,4 @@ export type WindowProps = {
     desktopRef: RefObject<HTMLElement | null>;
 };
 
-export type WindowMode = "windowed" | "maximized" | "minimized" | "closed";
+export type WindowMode = "windowed" | "maximized" | "minimized" | "closed" | "pre-minimized";
