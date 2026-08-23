@@ -34,7 +34,7 @@ export default function Desktop() {
         {
             id: "hobbies",
             name: "Hobbies",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
                 y: 50
@@ -43,7 +43,7 @@ export default function Desktop() {
         {
             id: "music",
             name: "Músicas",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
                 y: 180
@@ -52,7 +52,7 @@ export default function Desktop() {
         {
             id: "movies",
             name: "Filmes",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
                 y: 310
@@ -61,7 +61,7 @@ export default function Desktop() {
         {
             id: "trips",
             name: "VIAGENS",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
                 y: 440
@@ -70,7 +70,7 @@ export default function Desktop() {
         {
             id: "events",
             name: "Eventos",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 150,
                 y: 50
@@ -79,7 +79,7 @@ export default function Desktop() {
         {
             id: "testimonials",
             name: "DEPOIMENTOS",
-            icon: "/icon/folder-icon.svg",
+            icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 150,
                 y: 180
