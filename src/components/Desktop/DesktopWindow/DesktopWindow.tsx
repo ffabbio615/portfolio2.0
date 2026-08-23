@@ -71,16 +71,16 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
                 <div className="window-behavior-buttons">
                     <button className="behavior-button" title={windowMode !== "minimized" ? "Minimizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()}
                     onClick={(e) => {e.stopPropagation(); onMinimize(id); }}>
-                        <img src={"/icon/yellow-circle-icon.svg"} alt="Ícone de minimizar a janela" />
+                        <img src={"/icon/window/yellow-circle-icon.svg"} alt="Ícone de minimizar a janela" />
                     </button>
                     
                     <button className="behavior-button" title={windowMode === "windowed" ? "Maximizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()} 
                     onClick={(e) => {e.stopPropagation(); onDoubleClick?.(id);}}>
-                        <img src={"/icon/green-circle-icon.svg"} alt="Ícone de maximizar a janela" />
+                        <img src={"/icon/window/green-circle-icon.svg"} alt="Ícone de maximizar a janela" />
                     </button>
                     
                     <button className="behavior-button" title={"Fechar"} onPointerDown={(e) => e.stopPropagation()} onClick={(e)=> {e.stopPropagation(); onClose(id);}}>
-                        <img src={"/icon/red-circle-icon.svg"} alt="Ícone de fechar a janela" />
+                        <img src={"/icon/window/red-circle-icon.svg"} alt="Ícone de fechar a janela" />
                     </button>
                 </div>
 
