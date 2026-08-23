@@ -7,6 +7,7 @@ import Dock from "./Dock/Dock";
 import Wallpaper from "./Wallpaper/Wallpaper";
 import type { Position, WindowData } from "./DesktopWindow/DesktopWindow.types";
 import WindowsDock from './WindowsDock/WindowsDock';
+import type { DockItem } from './Dock/Dock.types';
 
 const WINDOW_POSITION_STORAGE_KEY = "desktop-window-position";
 
@@ -96,6 +97,8 @@ export default function Desktop() {
         // }
     ]);
 
+
+    //COMPORTAMENTO DAS PASTAS
     const handleClick = (id: string) => {
         setSelectedId(id);
     };
@@ -105,7 +108,17 @@ export default function Desktop() {
 
         if (!folder) return;
 
-        if(windows.find(w => w.id === `w-${id}`)) return;
+        const existingWindow = windows.find(
+            window => window.id === `w-${id}`
+        );
+
+        if (existingWindow) {
+            if (existingWindow.windowMode === "minimized") {
+                handleWindowRestore(existingWindow.id);
+            }
+
+            return;
+        }
 
         setWindows(prev => {
             const lastWindow = prev[prev.length - 1];
@@ -151,6 +164,52 @@ export default function Desktop() {
         );
     };
 
+    //COMPORTAMENTO DOS APPS DO DOCK
+    const handleDockOpen = (item: DockItem) => {
+        setWindows(prev => {
+            const windowId = `w-${item.id}`;
+
+            const existingWindow = prev.find(
+                window => window.id === windowId
+            );
+
+            if (existingWindow) {
+                if (existingWindow.windowMode === "minimized") {
+                    handleWindowRestore(existingWindow.id);
+                }
+
+                return prev;
+            }
+
+            const lastWindow = prev[prev.length - 1];
+
+            const newPosition = lastWindow?.position
+                ? {
+                    x: lastWindow.position.x + 30,
+                    y: lastWindow.position.y + 30,
+                }
+                : getSavedWindowPosition();
+
+            const reorganizedWindows = prev.map((window, index) => ({
+                ...window,
+                index: index + 1,
+            }));
+
+            return [
+                ...reorganizedWindows,
+                {
+                    id: windowId,
+                    title: item.name,
+                    icon: item.icon,
+                    position: newPosition,
+                    index: reorganizedWindows.length + 1,
+                    windowMode: "windowed",
+                },
+            ];
+        });
+    };
+
+    //COMPORTAMENTO DAS JANELAS
     const handleWindowFront = (id: string) => {
         setSelectedId(id);
 
@@ -365,7 +424,7 @@ export default function Desktop() {
             }
         </WindowsDock>
 
-        <Dock />
+        <Dock onOpen={handleDockOpen} />
 
         <Wallpaper />
     </main>
