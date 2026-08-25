@@ -37,4 +37,4 @@ export type WindowProps = {
     desktopRef: RefObject<HTMLElement | null>;
 };
 
-export type WindowMode = "windowed" | "maximized" | "minimized" | "closed" | "pre-minimized";
+export type WindowMode = "windowed" | "maximized" | "pre-minimized" | "minimized" | "closed" | "closed-maximized";

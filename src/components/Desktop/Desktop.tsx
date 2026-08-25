@@ -5,7 +5,7 @@ import FolderIcon from "./FolderIcon/FolderIcon";
 import DesktopWindow from "./DesktopWindow/DesktopWindow";
 import Dock from "./Dock/Dock";
 import Wallpaper from "./Wallpaper/Wallpaper";
-import type { Position, WindowData } from "./DesktopWindow/DesktopWindow.types";
+import type { Position, WindowData, WindowMode } from "./DesktopWindow/DesktopWindow.types";
 import WindowsDock from './WindowsDock/WindowsDock';
 import type { DockItem } from './Dock/Dock.types';
 
@@ -22,6 +22,18 @@ const getSavedWindowPosition = (): Position | null => {
 
     return JSON.parse(savedPosition);
 };
+
+const WINDOW_LAST_MODE = "desktop-window-mode";
+
+const getSavedWindowLastMode = (): WindowMode => {
+    const savedWindowsMode = localStorage.getItem(WINDOW_LAST_MODE);
+
+    if(!savedWindowsMode){
+        return "windowed";
+    }
+
+    return savedWindowsMode as WindowMode;
+}
 
 
 export default function Desktop() {
@@ -94,6 +106,7 @@ export default function Desktop() {
         //     icon: "/icon/folder-icon.svg",
         //     position: getSavedWindowPosition(),
         //     index: 1,
+        //     windowMode: "windowed",
         // }
     ]);
 
@@ -120,6 +133,8 @@ export default function Desktop() {
             return;
         }
 
+        console.log(getSavedWindowLastMode());
+
         setWindows(prev => {
             const lastWindow = prev[prev.length - 1];
 
@@ -143,7 +158,7 @@ export default function Desktop() {
                     icon: folder.icon,
                     position: newPosition,
                     index: reorganizedWindows.length + 1,
-                    windowMode: "windowed",
+                    windowMode: getSavedWindowLastMode(),
                 },
             ];
         });
@@ -166,19 +181,33 @@ export default function Desktop() {
 
     //COMPORTAMENTO DOS APPS DO DOCK
     const handleDockOpen = (item: DockItem) => {
-        setWindows(prev => {
-            const windowId = `w-${item.id}`;
+        const windowId = `w-${item.id}`;
 
+        setWindows(prev => {
             const existingWindow = prev.find(
                 window => window.id === windowId
             );
 
             if (existingWindow) {
-                if (existingWindow.windowMode === "minimized") {
-                    handleWindowRestore(existingWindow.id);
+                if (existingWindow.windowMode !== "minimized") {
+                    return prev;
                 }
+                
+                return [
+                    ...prev
+                        .filter(window => window.id !== windowId)
+                        .sort((a, b) => a.index - b.index)
+                        .map((window, index) => ({
+                            ...window,
+                            index: index + 1,
+                        })),
 
-                return prev;
+                    {
+                        ...existingWindow,
+                        index: prev.length,
+                        windowMode: "windowed",
+                    },
+                ];
             }
 
             const lastWindow = prev[prev.length - 1];
@@ -203,10 +232,11 @@ export default function Desktop() {
                     icon: item.icon,
                     position: newPosition,
                     index: reorganizedWindows.length + 1,
-                    windowMode: "windowed",
+                    windowMode: getSavedWindowLastMode(),
                 },
             ];
         });
+        setSelectedId(windowId);
     };
 
     //COMPORTAMENTO DAS JANELAS
@@ -257,7 +287,12 @@ export default function Desktop() {
 
         const window = windows.find(window => window.id === id);
 
-        if(window.windowMode === "windowed") handleWindowFront(id);
+        if(window.windowMode === "windowed"){
+            localStorage.setItem(WINDOW_LAST_MODE, "maximized");
+            handleWindowFront(id);
+        } else{
+            localStorage.setItem(WINDOW_LAST_MODE, "windowed");
+        }
     };
 
     const handleWindowMinimize = (id: string) => {
@@ -347,7 +382,10 @@ export default function Desktop() {
                 window.id === id
                     ? {
                         ...window,
-                        windowMode: "closed",
+                        windowMode: 
+                        window.windowMode === "windowed" 
+                        ? "closed" 
+                        : "closed-maximized",
                     }
                     : window
             )
@@ -374,7 +412,7 @@ export default function Desktop() {
         ))}
 
         {windows
-            .filter(window => window.windowMode === "windowed" || window.windowMode === "maximized" || window.windowMode === "closed" || window.windowMode === "pre-minimized")
+            .filter(window => window.windowMode === "windowed" || window.windowMode === "maximized" || window.windowMode === "closed" || window.windowMode === "closed-maximized" || window.windowMode === "pre-minimized")
             .map(window => (
                 <DesktopWindow
                     key={window.id}
