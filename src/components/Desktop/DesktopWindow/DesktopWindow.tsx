@@ -38,7 +38,7 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
         if (windowMode === "minimized") return;
 
         if (position === null) {
-            onMove(id, currentPosition);
+            onMove?.(id, currentPosition);
         }
 
         handlePointerDown(event, currentPosition);
