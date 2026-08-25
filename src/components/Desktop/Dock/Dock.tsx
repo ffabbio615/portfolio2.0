@@ -57,9 +57,9 @@ export default function Dock({onOpen}: DockProps) {
         className={`dock-button ${(item.id === "projects" || item.id === "linkedin") ? "dock-button-separated" : ""}`}
         onClick={() => {
           if(item.type === "window") {
-            onOpen(item);
+            onOpen?.(item);
           } else{
-            handleOpenLink(item.link);
+            handleOpenLink?.(item.link);
           }
         }}>
 
