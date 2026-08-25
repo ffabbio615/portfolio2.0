@@ -5,11 +5,15 @@ import Desktop from "./components/Desktop/Desktop";
 import { useAssets } from "./hooks/useAssets";
 
 export default function App() {
-  const { loading } = useAssets();
+  const { loading, progress } = useAssets();
 
-  if (!loading) {
-    return <BootScreen />;
-  }
+  return (
+    <>
+      <Desktop />
 
-  return <Desktop />;
+      {loading && (
+        <BootScreen progress={progress} />
+      )}
+    </>
+  );
 }

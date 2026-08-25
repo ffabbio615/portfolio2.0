@@ -1,16 +1,28 @@
 import { useEffect, useState } from "react";
+import { preloadAssets } from "../services/preloadAssets";
 
 export function useAssets() {
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    async function initialize() {
-      // por enquanto...
-      setLoading(true);
-    }
+    const loadAssets = async () => {
+      try {
+        await preloadAssets((progress) => {
+          setProgress(progress);
+        });
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setTimeout(()=> setLoading(false), 2000);
+      }
+    };
 
-    initialize();
+    loadAssets();
   }, []);
 
-  return { loading };
+  return {
+    loading,
+    progress,
+  };
 }
