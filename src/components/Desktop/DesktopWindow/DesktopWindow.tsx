@@ -48,7 +48,7 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
     return (
         <section 
         ref={windowRef} 
-        className={`window ${selected ? "selected" : ""} window-${windowMode} ${position === null ? "centered" : ""} ${hasPosition ? "placeble" : ""} ${isMoving ? "moving-window" : ""}`}
+        className={`window ${selected ? "selected" : ""} window-${windowMode} ${position === null && (windowMode === "windowed" || windowMode === "closed") ? "centered" : ""} ${hasPosition ? "placeble" : ""} ${isMoving ? "moving-window" : ""}`}
         style={{ zIndex: index, ...((windowMode === "windowed" || windowMode === "closed") && position ? {left: position.x, top: position.y, } : undefined) }}
         title={windowMode === "minimized" ? title : ""}
         onPointerDown={(e: React.MouseEvent<HTMLElement>) => {e.stopPropagation(); if (windowMode === "windowed") {onPointerDown?.(id)} }}
