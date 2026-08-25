@@ -13,7 +13,7 @@ export default function FolderIcon({id, name, icon, position, selected, onMove, 
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
             onClick={(e: React.MouseEvent<HTMLDivElement>) => {e.stopPropagation(); if (!hasMoved.current) {onClick?.(id);}}}
-            onDoubleClick={() => onDoubleClick(id)}
+            onDoubleClick={() => onDoubleClick?.(id)}
         >
             <img src={icon} alt={name} draggable={false} />
             <h2>{name}</h2>
