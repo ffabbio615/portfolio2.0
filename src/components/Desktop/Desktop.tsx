@@ -271,6 +271,10 @@ export default function Desktop() {
     };
 
     const handleWindowDoubleClick = (id: string) => {
+        const targetWindow = windows.find(window => window.id === id);
+
+        if (!targetWindow) return;
+
         setWindows(prev =>
             prev.map(window =>
                 window.id === id
@@ -285,12 +289,10 @@ export default function Desktop() {
             )
         );
 
-        const window = windows.find(window => window.id === id);
-
-        if(window.windowMode === "windowed"){
+        if (targetWindow.windowMode === "windowed") {
             localStorage.setItem(WINDOW_LAST_MODE, "maximized");
             handleWindowFront(id);
-        } else{
+        } else {
             localStorage.setItem(WINDOW_LAST_MODE, "windowed");
         }
     };
