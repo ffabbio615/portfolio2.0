@@ -1,75 +1,184 @@
-# React + TypeScript + Vite
+# Portfolio 2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio developed as an interactive desktop experience inspired by macOS.
 
-Currently, two official plugins are available:
+Instead of using a traditional portfolio layout, the project recreates a desktop environment where visitors can interact with folders, windows, applications and interface elements to explore my professional experience, projects, skills and other information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🌐 **Live:** https://portfolio2-0-kappa-six.vercel.app/
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* macOS-inspired desktop interface
+* Interactive desktop icons
+* Draggable windows
+* Window minimize, maximize and close controls
+* Dynamic window layering and focus
+* Dock interface
+* Minimized windows management
+* Persistent window positions using Local Storage
+* Boot screen with real asset preloading progress
+* Dynamic Top Bar with date, time and location
+* Settings menu
+* Responsive interface
+* AI-powered portfolio assistant using Mistral AI
 
-## Expanding the ESLint configuration
+The AI assistant allows visitors and recruiters to ask questions about my professional background directly through the portfolio interface. The AI integration communicates with a separate backend API and is restricted to answering based on professional information provided by the portfolio.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technologies
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Front-end
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* React
+* TypeScript
+* Vite
+* SASS / SCSS
+* HTML5
+* CSS3
+* Local Storage
+* Browser APIs
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Back-end / AI
 
+The portfolio communicates with a separate Node.js API responsible for securely integrating with the Mistral AI API.
+
+The backend repository is private and API credentials are never exposed in the front-end application.
+
+## 📁 Project Structure
+
+```text
+portfolio2.0/
+├── public/
+│   ├── font/
+│   ├── icons/
+│   └── images/
+│
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── services/
+│   ├── App.tsx
+│   ├── App.scss
+│   └── main.tsx
+│
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Running the Project Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Requirements
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Before starting, make sure you have installed:
 
+* Node.js
+* npm
+* Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ffabbio615/portfolio2.0.git
 ```
+
+### 2. Access the project directory
+
+```bash
+cd portfolio2.0
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Vite will start the local development server and display the address in the terminal, usually:
+
+```text
+http://localhost:5173
+```
+
+Open the address in your browser.
+
+## 📦 Production Build
+
+To generate a production build:
+
+```bash
+npm run build
+```
+
+The compiled application will be generated inside the `dist` directory.
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 🧹 Lint
+
+To run ESLint:
+
+```bash
+npm run lint
+```
+
+## 🤖 AI Integration
+
+The portfolio includes an AI assistant powered by Mistral AI.
+
+The front-end sends the visitor's question to a separate backend API. The backend is responsible for:
+
+1. Receiving the question.
+2. Providing the AI model with authorized professional information.
+3. Sending the request to Mistral AI.
+4. Returning the generated answer to the portfolio.
+
+The model is instructed to answer exclusively using the professional information provided by the application, reducing the possibility of generating unsupported information.
+
+```text
+Portfolio
+    ↓
+Backend API
+    ↓
+Professional Data + Prompt
+    ↓
+Mistral AI
+    ↓
+Backend API
+    ↓
+Portfolio
+```
+
+API keys and other sensitive credentials are stored exclusively on the backend and are not included in this repository.
+
+## 🌐 Deployment
+
+The front-end is deployed on Vercel.
+
+Production builds are generated using:
+
+```bash
+npm run build
+```
+
+## 👨‍💻 Author
+
+**Fábio Marques Melo**
+
+Front-End / Full-Stack Developer
+
+GitHub: https://github.com/ffabbio615
+
+## 📄 License
+
+This project was developed as a personal portfolio. Its source code is publicly available for demonstration and professional evaluation purposes.
