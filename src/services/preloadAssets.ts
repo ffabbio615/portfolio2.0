@@ -29,6 +29,7 @@ const images = [
     "/icon/topbar/wifi-icon.svg",
     "/icon/topbar/magnifier-icon.svg",
     "/icon/topbar/assistant-robot.gif",
+    "/icon/topbar/ai-thinking-loader.gif",
 
     //ÍCONES DAS JANELAS
     "/icon/window/green-circle-icon.svg",

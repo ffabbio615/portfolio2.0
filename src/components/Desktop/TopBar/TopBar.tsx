@@ -1,3 +1,4 @@
+import AssistantRobot from './AssistantRobot/AssistantRobot';
 import './TopBar.scss';
 import { useEffect, useRef, useState } from "react";
 
@@ -80,8 +81,6 @@ export default function TopBar() {
     };
   }, []);
 
-  const [activeInputBackground, setActiveInputBackground] = useState<boolean>(false);
-
 
   return (
 
@@ -129,18 +128,7 @@ export default function TopBar() {
       </div>
 
       <div className='right-side'>
-        <div className={`${activeInputBackground ? "search-input-background search-input-background-activated" : "search-input-background"}`} onClick={() => setActiveInputBackground(false)}></div>
-        <div className='topbar-assistant-robot-container'>
-          <div className='assistant-robot-container'>
-            <div className='search-input-container'>
-              <input className='search-input' type='text' placeholder='Pergunte algo sobre mim...' onClick={() => setActiveInputBackground(true)} />
-              <button className='search-input-button' type='button'>
-                <img className='search-input-icon' src='/icon/topbar/magnifier-icon.svg' alt='Ícone de lupa da barra de pesquisa' />
-              </button>
-            </div>
-            <img className='assistant-robot' src='/icon/topbar/assistant-robot.gif' alt='Robô Assistente' />
-          </div>
-        </div>
+        <AssistantRobot />
         <time className="topbar-datetime" dateTime={now.toISOString()}>{formattedDate}</time>
         <span className='topbar-location'>{location}</span>
       </div>
