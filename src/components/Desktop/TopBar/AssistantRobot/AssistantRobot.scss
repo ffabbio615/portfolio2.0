@@ -165,8 +165,13 @@
             border: 1px solid rgba($neutral-color-medium-gray, 0.2);
             border-bottom: none;
             border-radius: 8px 8px 0 0;
+<<<<<<< HEAD
             @include font-config($flight, $f14px, $fdisplay, $neutral-color-light-gray, 1);
             letter-spacing: 0.4px;
+=======
+            @include font-config($fregular, $f16px, $fdisplay, $neutral-color-light-gray, 1);
+            letter-spacing: 0.6px;
+>>>>>>> 82d38160322f1014335c2d8b422c5d801d969598
             align-self: flex-end;
             margin-right: auto;
         }
