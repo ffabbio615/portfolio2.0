@@ -1,5 +1,16 @@
 @use '../../../../App.scss' as *;
 
+@mixin assistant-text-boxes(){
+    background-color: rgba($neutral-color-dark-gray, 0.8);
+    border-radius: 8px;
+    padding-block: 8px;
+    padding-inline: 16px;
+    width: fit-content;
+    max-width: 55%;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+
 .search-input-background{
     width: 0vw;
     height: 0vh;
@@ -7,8 +18,9 @@
     inset: 0;
     z-index: 0;
     opacity: 0;
-    background-color: rgba($neutral-color-black, 0.8);
+    background-color: rgba($neutral-color-black, 0.5);
     transition: opacity 0.3s ease;
+    will-change: contents;
 }
 
 .search-input-background-activated{
@@ -98,19 +110,83 @@
     }
 }
 
-.assistant-answer-container{
-    width: 500px;
-    height: 250px;
+.assistant-question-answer-container{
+    min-width: 800px;
+    width: 55%;
+    min-height: 350px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px 8px 6px;
     position: fixed;
-    padding: 20px;
     border-radius: 8px;
+    outline: 1px solid rgba($neutral-color-medium-gray, 0.2);
+    box-shadow: 0 0 16px rgba($neutral-color-black, 0.9);
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    background-color: rgba($neutral-color-black, 0.8);
-    @include font-config($flight, $f16px, $fdisplay, $neutral-color-white, 1);
-    text-align: justify;
-    z-index: 11;
+    background-color: rgba($neutral-color-black, 1);
+    z-index: 12;
+    animation: showAssistantWindow 0.3s ease forwards;
+    will-change: contents;
+    
+    @keyframes showAssistantWindow {
+        from{
+            opacity: 0;
+            transform: translateX(-50%) translateY(-40%) scale(0.8);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(-50%) translateY(-50%) scale(1);
+        }
+    }
+
+    .assistant-title-container{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        column-gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 8px;
+
+        .assistant-title-logo{
+            height: 20px;
+            margin-top: 8px;
+        }
+
+        .assistant-title{
+            background-color: rgba($neutral-color-dark-gray, 0.4);
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-inline: 12px;
+            border: 1px solid rgba($neutral-color-medium-gray, 0.2);
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            @include font-config($flight, $f14px, $fdisplay, $neutral-color-light-gray, 1);
+            letter-spacing: 0.4px;
+            align-self: flex-end;
+            margin-right: auto;
+        }
+
+        .btn-close-assistant-container{
+            border: none;
+            width: 32px;
+            height: 100%;
+            background: none;
+            margin-top: 7px;
+            margin-left: 8px;
+            cursor: pointer;                
+
+            img{
+                width: 16px;
+                transition: 0.2s ease;
+                &:hover {filter: drop-shadow(0 0 12px $red-button-color); }
+            }
+        }
+    }
 
     .assistant-loader{
         height: 150px;
@@ -120,37 +196,60 @@
         transform: translateX(-50%) translateY(-50%);
     }
 
-    .question, .answer{
-        line-height: 22px;
-        letter-spacing: 1.2px;
-    }
+    .assistant-messages-container{
+        height: 100%;
+        padding: 8px 0 0 0;
+        background-color: rgba($neutral-color-dark-gray, 0.4);
+        overflow-y: hidden;
 
-    .assistant-question{
-
-        .assistant-terminal-user{
-            color: $user-question;
-        }
-    }
-
-    .assistant-answer{
-        margin-top: 8px;
-
-        .assistant-terminal-ai{
-            color: $system-answer;
-        }
-
-        .typing-cursor {
-            animation: blink 0.7s infinite;
+        .assistant-terminal-user, .assistant-terminal-ai{
+            @include font-config($fbold, $f15px, $fdisplay, $neutral-color-white, 1);
+            margin-right: 5px;
         }
     
-        @keyframes blink {
-            50% {
-                opacity: 0;
+        .question, .answer{
+            @include font-config($flight, $f14px, $fdisplay, $neutral-color-white, 1);
+            line-height: 22px;
+            letter-spacing: 1.2px;
+        }
+    
+        .question-answer-container{
+            padding-bottom: 16px;
+            height: 100%;
+            overflow-y: auto;
+
+            .assistant-question{
+                @include assistant-text-boxes();
+        
+                .assistant-terminal-user{
+                    color: $user-question;
+                    letter-spacing: 1px;
+                }
+            }
+        
+            .assistant-answer{
+                @include assistant-text-boxes();
+        
+                .assistant-terminal-ai{
+                    color: $system-answer;
+                    letter-spacing: 1px;
+                }
+        
+                .typing-cursor {
+                    animation: blink 0.7s infinite;
+                }
+            
+                @keyframes blink {
+                    50% {
+                        opacity: 0;
+                    }
+                }
             }
         }
     }
+
 }
 
-.assistant-answer-container-disabled{
+.assistant-question-answer-container-disabled{
     display: none;
 }
