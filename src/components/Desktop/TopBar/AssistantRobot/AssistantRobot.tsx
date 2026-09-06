@@ -114,7 +114,7 @@ export default function AssistantRobot(){
                             }}
                             disabled={loading}
                         />
-                        <button className='search-input-button' type='button' onClick={(!loading && !isTyping) && handleAskAssistant} disabled={loading}>
+                        <button className='search-input-button' type='button' onClick={handleAskAssistant} disabled={loading || isTyping}>
                             <img className='search-input-icon' src='/icon/topbar/magnifier-icon.svg' alt='Ícone de lupa da barra de pesquisa' />
                         </button>
                     </div>
