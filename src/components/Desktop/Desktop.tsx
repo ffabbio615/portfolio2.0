@@ -43,60 +43,60 @@ export default function Desktop() {
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
     const [folders, setFolders] = useState([
-        {
-            id: "hobbies",
-            name: "Hobbies",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 20,
-                y: 50
-            }
-        },
-        {
-            id: "music",
-            name: "Músicas",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 20,
-                y: 180
-            }
-        },
-        {
-            id: "movies",
-            name: "Filmes",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 20,
-                y: 310
-            }
-        },
-        {
-            id: "trips",
-            name: "VIAGENS",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 20,
-                y: 440
-            }
-        },
-        {
-            id: "events",
-            name: "Eventos",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 150,
-                y: 50
-            }
-        },
-        {
-            id: "testimonials",
-            name: "DEPOIMENTOS",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 150,
-                y: 180
-            }
-        }
+        // {
+        //     id: "hobbies",
+        //     name: "Hobbies",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 20,
+        //         y: 50
+        //     }
+        // },
+        // {
+        //     id: "music",
+        //     name: "Músicas",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 20,
+        //         y: 180
+        //     }
+        // },
+        // {
+        //     id: "movies",
+        //     name: "Filmes",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 20,
+        //         y: 310
+        //     }
+        // },
+        // {
+        //     id: "trips",
+        //     name: "VIAGENS",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 20,
+        //         y: 440
+        //     }
+        // },
+        // {
+        //     id: "events",
+        //     name: "Eventos",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 150,
+        //         y: 50
+        //     }
+        // },
+        // {
+        //     id: "testimonials",
+        //     name: "DEPOIMENTOS",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 150,
+        //         y: 180
+        //     }
+        // }
     ]);
 
     const [windows, setWindows] = useState<WindowData[]>([

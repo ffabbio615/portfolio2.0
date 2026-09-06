@@ -38,3 +38,18 @@ export type WindowProps = {
 };
 
 export type WindowMode = "windowed" | "maximized" | "pre-minimized" | "minimized" | "closed" | "closed-maximized";
+
+export type ActiveContent = 
+//FOLDERS
+"w-hobbies" | 
+"w-music" | 
+"w-movies" | 
+"w-trips" | 
+"w-events" | 
+"w-testimonials" | 
+
+//DOCK BUTTONS
+"w-aboutMe" | "w-soft-skills" | "w-hard-skills" |
+"w-curriculum" | "w-simple-curriculum" | "w-interactive-curriculum" |
+"w-projects" | 
+"w-contact" ; 

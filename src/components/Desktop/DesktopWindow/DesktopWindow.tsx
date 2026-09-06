@@ -1,7 +1,7 @@
 import "./DesktopWindow.scss";
 import { useRef, useState } from "react";
 import { useDraggable } from "../../../hooks/useDraggable";
-import type { WindowProps, Position } from "./DesktopWindow.types";
+import type { WindowProps, Position, ActiveContent } from "./DesktopWindow.types";
 import WindowSidebar from "./WindowSidebar/WindowSidebar";
 import WindowContent from "./WindowContent/WindowContent";
 
@@ -16,6 +16,7 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
 
     const [hasPosition] = useState(position !== null);
     const [isMoving, setIsMoving] = useState<boolean>(false);
+    const [activeContent, setActiveContent] = useState<ActiveContent>(id as ActiveContent);
 
     const { handlePointerDown, handlePointerMove, handlePointerUp, hasMoved } = useDraggable({ id, position: currentPosition, onMove: onMove!, });
 
@@ -86,9 +87,16 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
 
             </header>
 
-            <WindowSidebar windowMode={windowMode} />
+            <WindowSidebar 
+                windowMode={windowMode}
+                windowSidebarContent={id as ActiveContent}
+                setActiveContent={setActiveContent}
+            />
 
-            <WindowContent windowMode={windowMode} />
+            <WindowContent 
+                windowMode={windowMode}
+                activeContent={activeContent}
+            />
         </section>
     );
 }
