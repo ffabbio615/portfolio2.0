@@ -87,7 +87,7 @@ export default function AssistantRobot(){
 
                 setIsTyping(false);
             }
-        }, 20);
+        }, 10);
 
         return () => clearInterval(interval);
     }, [answer]);
@@ -108,13 +108,13 @@ export default function AssistantRobot(){
                             onClick={() => setActiveInputBackground(true)} 
                             onChange={(e)=> setQuestion(e.target.value)} 
                             onKeyDown={(e)=> {
-                                if (e.key === "Enter" && !loading){
+                                if (e.key === "Enter" && !loading && !isTyping){
                                     handleAskAssistant();
                                 }
                             }}
                             disabled={loading}
                         />
-                        <button className='search-input-button' type='button' onClick={handleAskAssistant} disabled={loading}>
+                        <button className='search-input-button' type='button' onClick={(!loading && !isTyping) && handleAskAssistant} disabled={loading}>
                             <img className='search-input-icon' src='/icon/topbar/magnifier-icon.svg' alt='Ícone de lupa da barra de pesquisa' />
                         </button>
                     </div>

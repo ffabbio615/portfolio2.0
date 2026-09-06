@@ -1,12 +1,29 @@
 import "./BootScreen.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 type BootScreenProps = {
   progress: number;
 };
 
 export default function BootScreen({progress,}: BootScreenProps) {
+
   const [logoLoaded, setLogoLoaded] = useState(false);
+
+  useEffect(() => {
+    async function wakeUpApi() {
+        try {
+          await axios.get(
+            "https://portfolio2-0-api.onrender.com/wakeup",
+          )
+
+        } catch (error) {
+            console.error("Erro ao acordar a API:", error);
+        }
+    }
+
+    wakeUpApi();
+  }, []);
 
   return (
     <div className={`boot-screen ${progress === 100 && "boot-screen-loaded"}`}>
