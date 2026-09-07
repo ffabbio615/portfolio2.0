@@ -1,9 +1,9 @@
 const images = [
 
     //BACKGROUNDS
-    "/image/background.webp",
-    "/image/background2.webp",
-    "/image/background3.webp",
+    "/image/background/background.webp",
+    "/image/background/background2.webp",
+    "/image/background/background3.webp",
 
     //ÍCONES DO DESKTOP
     "/icon/desktop/folder-icon.svg",

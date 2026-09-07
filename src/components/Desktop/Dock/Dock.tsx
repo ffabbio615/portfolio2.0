@@ -5,7 +5,7 @@ export default function Dock({onOpen}: DockProps) {
   
   const dockApps: DockItem[] = [
       {
-          id: "aboutMe",
+          id: "about-me",
           name: "Sobre Mim",
           icon: "/icon/dock/about-me-icon.svg",
           type: "window",

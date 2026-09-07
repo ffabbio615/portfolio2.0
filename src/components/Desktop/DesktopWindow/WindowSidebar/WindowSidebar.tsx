@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 type WindowSidebarProps = {
     windowMode: WindowMode;
     windowSidebarContent: ActiveContent;
+    activeContent: ActiveContent;
     setActiveContent: React.Dispatch<React.SetStateAction<ActiveContent>>;
 };
 
@@ -15,10 +16,10 @@ interface SidebarSection {
 
 interface ButtonConfig {
   label: string;
-  activeContent: ActiveContent; // Usa o mesmo tipo importado
+  content: ActiveContent; // Usa o mesmo tipo importado
 }
 
-export default function WindowSidebar({ windowMode, windowSidebarContent, setActiveContent }: WindowSidebarProps){
+export default function WindowSidebar({ windowMode, windowSidebarContent, activeContent, setActiveContent }: WindowSidebarProps){
 
     const [sidebarContent, setSidebarContent] = useState<SidebarSection[]>([]);
 
@@ -35,7 +36,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, setAct
                             buttons: {
                                 button1: {
                                     label: "Salvar currículos",
-                                    activeContent: "w-curriculum"
+                                    content: "w-curriculum"
                                 }
                             }
                         },
@@ -43,51 +44,42 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, setAct
                             title: "Currículos",
                             buttons: {
                                 button1: {
-                                    label: "Simples",
-                                    activeContent: "w-simple-curriculum"
+                                    label: "Interativo",
+                                    content: "w-interactive-curriculum"
                                 },
                                 button2: {
-                                    label: "Interativo",
-                                    activeContent: "w-interactive-curriculum"
-                                }
+                                    label: "Simples Português",
+                                    content: "w-simple-curriculum-pt"
+                                },
+                                button3: {
+                                    label: "European English",
+                                    content: "w-simple-curriculum-en"
+                                },
                             }
                         }
                     ]);
 
                 break;
 
-                case "w-aboutMe":
+                case "w-about-me":
                     setSidebarContent([
                         {
                             title: "Profissional",
                             buttons: {
                                 button1: {
-                                    label: "Soft Skills",
-                                    activeContent: "w-soft-skills"
+                                    label: "Sobre Mim",
+                                    content: "w-about-me"
                                 },
                                 button2: {
+                                    label: "Soft Skills",
+                                    content: "w-soft-skills"
+                                },
+                                button3: {
                                     label: "Hard Skills",
-                                    activeContent: "w-hard-skills"
+                                    content: "w-hard-skills"
                                 }
                             }
                         },
-                        {
-                            title: "Pessoal",
-                            buttons: {
-                                button1: {
-                                    label: "Músicas",
-                                    activeContent: "w-music"
-                                },
-                                button2: {
-                                    label: "Filmes",
-                                    activeContent: "w-movies"
-                                },
-                                button3: {
-                                    label: "Atividades",
-                                    activeContent: "w-hobbies"
-                                }
-                            }
-                        }
                     ]);
 
                 break;
@@ -109,7 +101,12 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, setAct
 
                     {Object.entries(section.buttons).map(
                         ([buttonId, button]) => (
-                            <button key={buttonId} className="sidebar-menu-button" type="button" onClick={() => setActiveContent(button.activeContent)}>
+                            <button 
+                            key={buttonId} 
+                            className={`sidebar-menu-button ${activeContent === button.content ? 'sidebar-menu-button-activated' : ''}`} 
+                            type="button" 
+                            onClick={() => setActiveContent(button.content)}
+                            >
                                 {button.label}
                             </button>
                         )

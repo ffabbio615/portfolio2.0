@@ -90,6 +90,7 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
             <WindowSidebar 
                 windowMode={windowMode}
                 windowSidebarContent={id as ActiveContent}
+                activeContent={activeContent}
                 setActiveContent={setActiveContent}
             />
 

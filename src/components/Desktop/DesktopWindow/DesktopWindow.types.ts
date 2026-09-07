@@ -49,7 +49,7 @@ export type ActiveContent =
 "w-testimonials" | 
 
 //DOCK BUTTONS
-"w-aboutMe" | "w-soft-skills" | "w-hard-skills" |
-"w-curriculum" | "w-simple-curriculum" | "w-interactive-curriculum" |
+"w-about-me" | "w-soft-skills" | "w-hard-skills" |
+"w-curriculum" | "w-interactive-curriculum" | "w-simple-curriculum-pt" | "w-simple-curriculum-en" | 
 "w-projects" | 
 "w-contact" ; 
