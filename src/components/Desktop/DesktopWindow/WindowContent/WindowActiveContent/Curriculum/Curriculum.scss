@@ -6,42 +6,71 @@
     border: solid $neutral-color-black;
     border-width: 3px 5px 0 5px;
     background-color: $neutral-color-white;
+    container-type: inline-size;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    overflow-y: auto;
+    padding-block: 20px;
+    row-gap: 8%;
 
     .curriculum-main-text-container{
         width: 90%;
         text-align: center;
         
         .curriculum-title{
-            @include font-config($fbold, $f32px, $fdisplay, $neutral-color-dark-gray, 1);
+            @include font-config($fbold, $cplusPX, $fdisplay, $neutral-color-dark-gray, 1);
         }
     
         .curriculum-description{
-            @include font-config($fregular, $f16px, $fdisplay, $neutral-color-dark-gray, 1);
+            @include font-config($fregular, $fc20px, $fdisplay, $neutral-color-dark-gray, 1);
         }
     }
 
     .curriculum-cards-container{
         width: 90%;
+        max-width: 1300px;
+        height: 51%;
+        min-height: 250px;
+        max-height: 400px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         column-gap: 2.5%;
+        row-gap: 20px;
         
         .curriculum-card{
             background-color: white;
-            width: 200px;
-            height: 250px;
+            width: 28.28%;
+            min-width: 200px;
+            height: 100%;
+            min-height: 250px;
             border-radius: 50px;
-            box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.5);
+            box-shadow: 0 0 20px rgba($neutral-color-dark-gray, 0.3);
             display: flex;
             flex-direction: column;
-            padding: 0 16px 20px 16px;
+            align-items: center;
+            padding-bottom: 20px;
             overflow: hidden;
             position: relative;
             z-index: 0;
+            transition: transform 0.2s ease;
+            user-select: none;
+            
+            &:hover{
+                transform: scale(1.05);
+
+                .card-color-one:not(.curriculum-card-download-button),
+                .card-color-two:not(.curriculum-card-download-button),
+                .card-color-three:not(.curriculum-card-download-button),
+                .text-card-color-one:not(.curriculum-card-download-button),
+                .text-card-color-two:not(.curriculum-card-download-button),
+                .text-card-color-three:not(.curriculum-card-download-button) {
+                    filter: brightness(1.2);
+                }
+            }
+
 
             .curriculum-card-icon-container{
                 width: 100%;
@@ -51,48 +80,63 @@
                 align-items: center;
 
                 .curriculum-card-icon{
-                    // background-color: red;
-                    height: 60px;
-                    width: 60px;
-                    border-radius: 0 0 30px 30px;
-                    box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.8);
+                    height: 100%;
+                    width: 30%;
+                    border-radius: 0 0 50% 50%;
+                    box-shadow: 0 0 12px rgba($neutral-color-dark-gray, 0.6);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img{
+                        height: 66.67%;
+                        border-radius: 12px;
+                        margin-left: 2px;
+                        margin-bottom: 2px;
+                    }
                 }
             }
 
             .curriculum-card-text-button-container{
-                width: 100%;
+                width: 80%;
                 height: 80%;
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-rows: 30% 40% 30%;
+                justify-items: center;
                 align-items: center;
-                justify-content: space-evenly;
 
                 .curriculum-card-title{
-                    @include font-config($fmedium, $f20px, $fdisplay, red, 1);
+                    @include font-config($fmedium, $fc24px, $fdisplay, $neutral-color-white, 1);
                     text-align: center;
+                    width: 13ch;
                 }
     
                 .curriculum-card-description{
-                    @include font-config($fregular, $f13px, $fdisplay, $neutral-color-medium-gray, 1);
+                    @include font-config($fregular, $fc15px, $fdisplay, $neutral-color-medium-gray, 1);
                     text-align: center;
                 }
     
-                .curriculum-card-download{
+                .curriculum-card-download-button{
                     text-decoration: none;
-                    padding: 8px;
-                    // background-color: red;
                     width: 60%;
-                    border-radius: 12px;
-                    text-align: center;
-                    @include font-config($fmedium, $f14px, $fdisplay, $neutral-color-white, 1);
-                    letter-spacing: 0.7px;
+                    height: 55%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: clamp(12px, 2vw + 4px, 32px);
+                    @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
+                    letter-spacing: 0.8px;
+                    transition: filter 0.2s ease;
+
+                    &:hover{
+                        filter: brightness(1.2);
+                    }
                 }
             }
 
             .curriculum-card-background{
                 width: 100%;
                 height: 16px;
-                // background-color: red;
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -101,12 +145,13 @@
         }
     }
 
-    .card-color-one{ background-color: orangered !important; }
-    .card-color-two{ background-color: rgb(146, 62, 101) !important; }
-    .card-color-three{ background-color: rebeccapurple !important; }
-    .text-card-color-one{ color: orangered !important; }
-    .text-card-color-two{ color: rgb(146, 62, 101) !important; }
-    .text-card-color-three{ color: rebeccapurple !important; }
+    .card-color-one{ background-color: rgb(40, 100, 160) !important; }
+    .card-color-two{ background-color: rgb(145, 60, 100) !important; }
+    .card-color-three{ background-color: rgb(100, 60, 140) !important; }
+    .text-card-color-one{ color: rgb(40, 100, 160) !important; }
+    .text-card-color-two{ color: rgb(145, 60, 100) !important; }
+    .text-card-color-three{ color: rgb(100, 60, 140) !important; }
+    .card-color-one, .card-color-two, .card-color-three, .text-card-color-one, .text-card-color-two, .text-card-color-three {transition: filter 0.2s ease;}
 }
 
 .curriculum-pdf {

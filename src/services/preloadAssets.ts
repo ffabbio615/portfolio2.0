@@ -35,6 +35,13 @@ const images = [
     "/icon/window/green-circle-icon.svg",
     "/icon/window/red-circle-icon.svg",
     "/icon/window/yellow-circle-icon.svg",
+
+    //ÍCONES DOS CONTEÚDOS DAS JANELAS
+
+    //Curriculo:
+    "/icon/windowsContents/curriculum/curriculum-in-icon.svg",
+    "/icon/windowsContents/curriculum/curriculum-pt-icon.svg",
+    "/icon/windowsContents/curriculum/curriculum-en-icon.svg",
   
 ];
 

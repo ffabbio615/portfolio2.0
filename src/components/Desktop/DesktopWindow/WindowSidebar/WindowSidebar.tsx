@@ -35,7 +35,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                             title: "Download",
                             buttons: {
                                 button1: {
-                                    label: "Salvar currículos",
+                                    label: "Salvar currículo",
                                     content: "w-curriculum"
                                 }
                             }
@@ -44,7 +44,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                             title: "Currículos",
                             buttons: {
                                 button1: {
-                                    label: "Interativo",
+                                    label: "Layout Personalizado",
                                     content: "w-interactive-curriculum"
                                 },
                                 button2: {

@@ -11,7 +11,7 @@ type CurriculumCard = {
 
 const curriculumCards: CurriculumCard[] = [
     {
-        icon: "/icon/topbar/contrast-icon.svg",
+        icon: "/icon/windowsContents/curriculum/curriculum-in-icon.svg",
         title: "Currículo Interativo",
         description: "Currículo com layout personalizado e links clicáveis para contatos e projetos.",
         link: "/archive/curriculum/Fabio_Marques_CV.pdf",
@@ -19,7 +19,7 @@ const curriculumCards: CurriculumCard[] = [
         textCardColor: "text-card-color-one"
     },
     {
-        icon: "/icon/topbar/contrast-icon.svg",
+        icon: "/icon/windowsContents/curriculum/curriculum-pt-icon.svg",
         title: "Currículo Simples Português",
         description: "Resumo profissional em português com experiência, formação, competências técnicas e principais projetos.",
         link: "/archive/curriculum/Fabio_Marques_CV_EUR_PT.pdf",
@@ -27,8 +27,8 @@ const curriculumCards: CurriculumCard[] = [
         textCardColor: "text-card-color-two"
     },
     {
-        icon: "/icon/topbar/contrast-icon.svg",
-        title: "European English",
+        icon: "/icon/windowsContents/curriculum/curriculum-en-icon.svg",
+        title: "European English Curriculum",
         description: "Professional CV in English featuring work experience, education, technical skills and key projects.",
         link: "/archive/curriculum/Fabio_Marques_CV_EUR_EN.pdf",
         cardColor: "card-color-three",
@@ -49,13 +49,15 @@ export default function Curriculum() {
                     <div className="curriculum-card" key={card.title}>
 
                         <div className='curriculum-card-icon-container'>
-                            <img className={`curriculum-card-icon ${card.cardColor}`} src={card.icon} alt="" />
+                            <div className={`curriculum-card-icon ${card.cardColor}`}>
+                                <img src={card.icon} alt="" />
+                            </div>
                         </div>
                         
                         <div className='curriculum-card-text-button-container'>
                             <h5 className={`curriculum-card-title ${card.textCardColor}`}>{card.title}:</h5>
                             <p className='curriculum-card-description'>{card.description}</p>
-                            <a className={`curriculum-card-download ${card.cardColor}`} href={card.link} download>Baixar</a>
+                            <a className={`curriculum-card-download-button ${card.cardColor}`} href={card.link} download>Baixar</a>
                         </div>
                         
                         <div className={`curriculum-card-background ${card.cardColor}`}></div>

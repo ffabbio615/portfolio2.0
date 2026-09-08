@@ -86,6 +86,7 @@ $system-answer: rgb(0, 200, 0);
 
 $fdisplay: 'SF-Pro-Display', sans-serif;
 
+//CONFIGURAÇÃO PARA VIEWPORTS
 $plusPX: clamp(42px, 3.1vw, 48px);
 $f42px: clamp(36px, 2.8vw, 42px);
 $f36px: clamp(32px, 2.5vw, 36px);
@@ -104,6 +105,26 @@ $f13px: clamp(11px, 0.9vw, 13px);
 $f12px: clamp(10px, 0.81vw, 12px);
 $f11px: clamp(9px, 0.75vw, 11px);
 $f10px: clamp(8px, 0.69vw, 10px);
+
+//CONFIGURAÇÃO PARA CONTAINERS
+$cplusPX: clamp(42px, 4.2cqw, 48px);
+$fc42px: clamp(36px, 3.8cqw, 42px);
+$fc36px: clamp(32px, 3.4cqw, 36px);
+$fc32px: clamp(28px, 3.0cqw, 32px);
+$fc30px: clamp(26px, 2.8cqw, 30px);
+$fc28px: clamp(24px, 2.6cqw, 28px);
+$fc26px: clamp(24px, 2.5cqw, 26px);
+$fc24px: clamp(20px, 2.2cqw, 24px);
+$fc22px: clamp(18px, 2.0cqw, 22px);
+$fc20px: clamp(18px, 1.8cqw, 20px);
+$fc18px: clamp(16px, 1.6cqw, 18px);
+$fc16px: clamp(14px, 1.4cqw, 16px);
+$fc15px: clamp(13px, 1.3cqw, 15px);
+$fc14px: clamp(12px, 1.2cqw, 14px);
+$fc13px: clamp(11px, 1.1cqw, 13px);
+$fc12px: clamp(10px, 1.0cqw, 12px);
+$fc11px: clamp(9px, 0.9cqw, 11px);
+$fc10px: clamp(8px, 0.8cqw, 10px);
 
 $fthin: 100;
 $fextraLight: 200;
