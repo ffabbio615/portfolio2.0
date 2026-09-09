@@ -17,6 +17,7 @@ interface SidebarSection {
 interface ButtonConfig {
   label: string;
   content: ActiveContent; // Usa o mesmo tipo importado
+  link?: string;
 }
 
 export default function WindowSidebar({ windowMode, windowSidebarContent, activeContent, setActiveContent }: WindowSidebarProps){
@@ -28,7 +29,47 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
         const handleSidebarContent = () => {
 
             switch (windowSidebarContent) {
+                
+                //FOLDERS
+                case "w-hobbies":
+                
+                break;
 
+                case "w-music":
+                
+                break;
+
+                case "w-movies":
+                
+                break;
+
+                case "w-trips":
+
+                break;
+
+                //DOCK
+                case "w-about-me":
+                    setSidebarContent([
+                        {
+                            title: "Profissional",
+                            buttons: {
+                                button1: {
+                                    label: "Sobre Mim",
+                                    content: "w-about-me"
+                                },
+                                button2: {
+                                    label: "Soft Skills",
+                                    content: "w-soft-skills"
+                                },
+                                button3: {
+                                    label: "Hard Skills",
+                                    content: "w-hard-skills"
+                                }
+                            }
+                        },
+                    ]);
+                break;
+                
                 case "w-curriculum":
                     setSidebarContent([
                         {
@@ -61,28 +102,35 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
 
                 break;
 
-                case "w-about-me":
+                case "w-projects":
+                
+                break;
+
+                case "w-contact":
                     setSidebarContent([
                         {
-                            title: "Profissional",
+                            title: "Links Diretos",
                             buttons: {
                                 button1: {
-                                    label: "Sobre Mim",
-                                    content: "w-about-me"
+                                    label: "WhatsApp",
+                                    content: "w-whatsapp",
+                                    link: "https://api.whatsapp.com/send?phone=5521998008185",
                                 },
                                 button2: {
-                                    label: "Soft Skills",
-                                    content: "w-soft-skills"
+                                    label: "LinkedIn",
+                                    content: "w-linkedin",
+                                    link: "https://www.linkedin.com/in/fabiomarquesme/",
                                 },
                                 button3: {
-                                    label: "Hard Skills",
-                                    content: "w-hard-skills"
+                                    label: "Instagram",
+                                    content: "w-instagram",
+                                    link: "https://www.instagram.com/fabio_marques_me/",
                                 }
                             }
                         },
                     ]);
-
                 break;
+
 
                 default:
                     setSidebarContent([]);
@@ -101,14 +149,24 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
 
                     {Object.entries(section.buttons).map(
                         ([buttonId, button]) => (
-                            <button 
-                            key={buttonId} 
-                            className={`sidebar-menu-button ${activeContent === button.content ? 'sidebar-menu-button-activated' : ''}`} 
-                            type="button" 
-                            onClick={() => setActiveContent(button.content)}
-                            >
-                                {button.label}
-                            </button>
+                            button.link ?
+                                <a 
+                                key={buttonId}
+                                className={`sidebar-menu-button ${activeContent === button.content ? 'sidebar-menu-button-activated' : ''}`}
+                                href={button.link} 
+                                target="_blank"
+                                >
+                                    {button.label}
+                                </a>
+                            :
+                                <button 
+                                key={buttonId} 
+                                className={`sidebar-menu-button ${activeContent === button.content ? 'sidebar-menu-button-activated' : ''}`} 
+                                type="button" 
+                                onClick={() => setActiveContent(button.content)}
+                                >
+                                    {button.label}
+                                </button>
                         )
                     )}
                 </section>

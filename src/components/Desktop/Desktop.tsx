@@ -79,24 +79,24 @@ export default function Desktop() {
                 y: 440
             }
         },
-        {
-            id: "events",
-            name: "Eventos",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 150,
-                y: 50
-            }
-        },
-        {
-            id: "testimonials",
-            name: "DEPOIMENTOS",
-            icon: "/icon/desktop/folder-icon.svg",
-            position: {
-                x: 150,
-                y: 180
-            }
-        }
+        // {
+        //     id: "events",
+        //     name: "Eventos",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 150,
+        //         y: 50
+        //     }
+        // },
+        // {
+        //     id: "testimonials",
+        //     name: "DEPOIMENTOS",
+        //     icon: "/icon/desktop/folder-icon.svg",
+        //     position: {
+        //         x: 150,
+        //         y: 180
+        //     }
+        // }
     ]);
 
     const [windows, setWindows] = useState<WindowData[]>([

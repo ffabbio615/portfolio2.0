@@ -52,4 +52,4 @@ export type ActiveContent =
 "w-about-me" | "w-soft-skills" | "w-hard-skills" |
 "w-curriculum" | "w-interactive-curriculum" | "w-simple-curriculum-pt" | "w-simple-curriculum-en" | 
 "w-projects" | 
-"w-contact" ; 
+"w-contact" | "w-whatsapp" | "w-linkedin" | "w-instagram" ; 
