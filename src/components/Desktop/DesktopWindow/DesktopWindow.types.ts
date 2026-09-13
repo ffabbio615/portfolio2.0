@@ -51,5 +51,5 @@ export type ActiveContent =
 //DOCK BUTTONS
 "w-about-me" | "w-soft-skills" | "w-hard-skills" |
 "w-curriculum" | "w-interactive-curriculum" | "w-simple-curriculum-pt" | "w-simple-curriculum-en" | 
-"w-projects" | 
+"w-projects" | "w-github" | "w-pronto-abrigo" | "w-vocabary" | "w-prime-language" | "w-capiwaras" | "w-medicos-dentistas" | "w-portfolio2" |
 "w-contact" | "w-whatsapp" | "w-linkedin" | "w-instagram" ; 

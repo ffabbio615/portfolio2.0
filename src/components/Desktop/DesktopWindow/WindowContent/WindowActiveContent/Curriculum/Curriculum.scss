@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     overflow-y: auto;
     padding-block: 20px;
     row-gap: 8%;
@@ -31,21 +30,22 @@
     .curriculum-cards-container{
         width: 90%;
         max-width: 1300px;
-        height: 51%;
-        min-height: 250px;
-        max-height: 400px;
+        flex: 1;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        column-gap: 2.5%;
+        align-items: flex-start;
+        align-content: flex-start;
+        column-gap: 3%;
         row-gap: 20px;
         
         .curriculum-card{
             background-color: white;
             width: 28.28%;
-            min-width: 200px;
-            height: 100%;
-            min-height: 250px;
+            min-width: 220px;
+            aspect-ratio: 9 / 10;
+            box-sizing: border-box;
+            
             border-radius: 50px;
             box-shadow: 0 0 20px rgba($neutral-color-dark-gray, 0.3);
             display: flex;
@@ -145,12 +145,12 @@
         }
     }
 
-    .card-color-one{ background-color: rgb(40, 100, 160) !important; }
-    .card-color-two{ background-color: rgb(145, 60, 100) !important; }
-    .card-color-three{ background-color: rgb(100, 60, 140) !important; }
-    .text-card-color-one{ color: rgb(40, 100, 160) !important; }
-    .text-card-color-two{ color: rgb(145, 60, 100) !important; }
-    .text-card-color-three{ color: rgb(100, 60, 140) !important; }
+    .card-color-one{ background-color: $curriculum-card-oil-blue !important; }
+    .card-color-two{ background-color: $curriculum-card-wine !important; }
+    .card-color-three{ background-color: $curriculum-card-purple-grape !important; }
+    .text-card-color-one{ color: $curriculum-card-oil-blue !important; }
+    .text-card-color-two{ color: $curriculum-card-wine !important; }
+    .text-card-color-three{ color: $curriculum-card-purple-grape !important; }
     .card-color-one, .card-color-two, .card-color-three, .text-card-color-one, .text-card-color-two, .text-card-color-three {transition: filter 0.2s ease;}
 }
 

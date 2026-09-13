@@ -19,6 +19,11 @@ $yellow-button-color: rgb(200, 200, 0);
 $user-question: rgb(240, 0, 0);
 $system-answer: rgb(0, 200, 0);
 
+//CURRICULUM CARDS
+$curriculum-card-oil-blue: rgb(40, 100, 160);
+$curriculum-card-wine: rgb(145, 60, 100);
+$curriculum-card-purple-grape: rgb(100, 60, 140);
+
 
 //FONT San Francisco (SF)
 @font-face{
@@ -149,6 +154,20 @@ $fblack: 900;
     padding: 1px 4px 1px 4px;
     border-radius: 4px;
     user-select: none;
+}
+
+@mixin default-window-active-content(){
+    width: 100%;
+    height: 100%;
+    border: solid $neutral-color-black;
+    border-width: 3px 5px 0 5px;
+    background-color: $neutral-color-white;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding-block: 20px;
 }
 
 

@@ -42,6 +42,9 @@ const images = [
     "/icon/windowsContents/curriculum/curriculum-in-icon.svg",
     "/icon/windowsContents/curriculum/curriculum-pt-icon.svg",
     "/icon/windowsContents/curriculum/curriculum-en-icon.svg",
+
+    //Contato
+    "/icon/windowsContents/contact/dots-loading.gif",
   
 ];
 

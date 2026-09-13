@@ -21,7 +21,7 @@ const curriculumCards: CurriculumCard[] = [
     {
         icon: "/icon/windowsContents/curriculum/curriculum-pt-icon.svg",
         title: "Currículo Simples Português",
-        description: "Resumo profissional em português com experiência, formação, competências técnicas e principais projetos.",
+        description: "Resumo com experiência, formação, competências técnicas e principais projetos.",
         link: "/archive/curriculum/Fabio_Marques_CV_EUR_PT.pdf",
         cardColor: "card-color-two",
         textCardColor: "text-card-color-two"
@@ -29,7 +29,7 @@ const curriculumCards: CurriculumCard[] = [
     {
         icon: "/icon/windowsContents/curriculum/curriculum-en-icon.svg",
         title: "European English Curriculum",
-        description: "Professional CV in English featuring work experience, education, technical skills and key projects.",
+        description: "Resume in English featuring work experience, education, technical skills and key projects.",
         link: "/archive/curriculum/Fabio_Marques_CV_EUR_EN.pdf",
         cardColor: "card-color-three",
         textCardColor: "text-card-color-three"

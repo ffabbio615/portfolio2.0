@@ -103,11 +103,64 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                 break;
 
                 case "w-projects":
-                
+                    setSidebarContent([
+                        {
+                            title: "Projetos",
+                            buttons: {
+                                button1: {
+                                    label: "Visão Geral",
+                                    content: "w-projects",
+                                },
+                                button2: {
+                                    label: "Repositórios GitHub",
+                                    content: "w-github",
+                                    link: "https://github.com/ffabbio615?tab=repositories",
+                                },
+                            }
+                        },
+                        {
+                            title: "Deployments",
+                            buttons: {
+                                button2: {
+                                    label: "Pronto Abrigo",
+                                    content: "w-pronto-abrigo",
+                                },
+                                button3: {
+                                    label: "Vocabary",
+                                    content: "w-vocabary",
+                                },
+                                button4: {
+                                    label: "Prime Language",
+                                    content: "w-prime-language",
+                                },
+                                button5: {
+                                    label: "CapiWaras",
+                                    content: "w-capiwaras",
+                                },
+                                button6: {
+                                    label: "Médicos & Dentistas",
+                                    content: "w-medicos-dentistas",
+                                },
+                                button7: {
+                                    label: "Portfólio 2.0",
+                                    content: "w-portfolio2",
+                                }
+                            }
+                        }
+                    ]);
                 break;
 
                 case "w-contact":
                     setSidebarContent([
+                        {
+                            title: "Formulário",
+                            buttons: {
+                                button1: {
+                                    label: "E-mail",
+                                    content: "w-contact",
+                                },
+                            }
+                        },
                         {
                             title: "Links Diretos",
                             buttons: {
