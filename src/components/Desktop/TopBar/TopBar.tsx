@@ -111,7 +111,7 @@ export default function TopBar() {
                 </li>
             </ul>
 
-            <span className="settings-menu-label">Tema <span>❯</span></span>
+            {/* <span className="settings-menu-label">Tema <span>❯</span></span>
 
             <ul className="settings-submenu theme-submenu">
                 <li>
@@ -121,7 +121,7 @@ export default function TopBar() {
                 <li>
                     <button className='settings-submenu-button' type="button" onClick={()=> setSettingsMenu(false)}>Escuro</button>
                 </li>
-            </ul>
+            </ul> */}
 
             <button type="button" className="settings-about" onClick={()=> setSettingsMenu(false)}>Sobre o Portfólio</button>
         </nav>

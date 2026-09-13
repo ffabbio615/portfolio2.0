@@ -6,6 +6,7 @@ import ContactMain from './WindowActiveContent/Contact/ContactMain';
 import AboutMe from './WindowActiveContent/AboutMe/AboutMe';
 import SoftSkills from './WindowActiveContent/AboutMe/SoftSkills/SoftSkills';
 import HardSkills from './WindowActiveContent/AboutMe/HardSkills/HardSkills';
+import EmptyFolder from './WindowActiveContent/EmptyFolder/EmptyFolder';
 
 type WindowContentProps = {
     windowMode: WindowMode;
@@ -44,7 +45,7 @@ export default function WindowContent({ windowMode, activeContent }: WindowConte
                 return <ContactMain />;
             
             default:
-                return;
+                return <EmptyFolder />;
         }
     }
 
