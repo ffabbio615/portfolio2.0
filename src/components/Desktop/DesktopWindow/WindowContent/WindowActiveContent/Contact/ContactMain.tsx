@@ -21,6 +21,9 @@ export default function ContactMain() {
             });
             setContactLoading(false);
             alert("Mensagem enviada com sucesso!");
+            setName("");
+            setEmail("");
+            setMessage("");
         } catch(error){
             alert(error);
         } finally{
