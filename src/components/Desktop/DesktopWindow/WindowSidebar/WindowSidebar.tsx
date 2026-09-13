@@ -184,7 +184,6 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                     ]);
                 break;
 
-
                 default:
                     setSidebarContent([]);
             }

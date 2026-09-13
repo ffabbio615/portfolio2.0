@@ -3,6 +3,9 @@ import type { WindowMode, ActiveContent } from "../DesktopWindow.types";
 import Curriculum from './WindowActiveContent/Curriculum/CurriculumMain';
 import CurriculumTypes from './WindowActiveContent/Curriculum/CurriculumTypes';
 import ContactMain from './WindowActiveContent/Contact/ContactMain';
+import AboutMe from './WindowActiveContent/AboutMe/AboutMe';
+import SoftSkills from './WindowActiveContent/AboutMe/SoftSkills/SoftSkills';
+import HardSkills from './WindowActiveContent/AboutMe/HardSkills/HardSkills';
 
 type WindowContentProps = {
     windowMode: WindowMode;
@@ -14,7 +17,13 @@ export default function WindowContent({ windowMode, activeContent }: WindowConte
     const handleActiveContent = (content: ActiveContent)=>{
         switch(content){
             case "w-about-me":
-                return;
+                return <AboutMe />;
+
+            case "w-soft-skills":
+                return <SoftSkills />
+
+            case "w-hard-skills":
+                return <HardSkills />
 
             case "w-curriculum":
                 return <Curriculum />;
