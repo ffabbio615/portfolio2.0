@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './HardSkills.scss';
 
 type HardSkillGroup = {
@@ -82,11 +83,12 @@ const hardSkills: HardSkillGroup[] = [
     {
         title: "Ferramentas e Deploy",
         skills: [
-            "Git",
             "GitHub",
-            "npm",
             "Vercel",
-            "Render"
+            "Render",
+            "Supabase",
+            "Firebase App Hosting",
+            "LocalWeb"
         ]
     },
     {
@@ -103,6 +105,9 @@ const hardSkills: HardSkillGroup[] = [
 ];
 
 export default function HardSkills() {
+
+    const [selectedSkillGroup, setSelectedSkillGroup] = useState<number | null>(null);
+
     return (
         <div className="hard-skills-main-container">
             <div className="hard-skills-container">
@@ -113,16 +118,19 @@ export default function HardSkills() {
                 </div>
 
                 <div className="hard-skills-content">
-                    {hardSkills.map((group) => (
-                        <section className="hard-skills-group" key={group.title}>
-                            <h5 className='hard-skill-card-title'>{group.title}</h5>
+                    {hardSkills.map((group, index) => (
+                        <div className="hard-skills-group" key={group.title}>
+                            <h5 className={selectedSkillGroup === index ? " hard-skill-card-title-selected hard-skill-card-title" : "hard-skill-card-title"} 
+                            onClick={selectedSkillGroup !== index ? ()=> setSelectedSkillGroup(index) : ()=> setSelectedSkillGroup(null)}>
+                                {group.title} <span>❯</span>
+                            </h5>
 
-                            <div className="hard-skills-list">
+                            <div className={selectedSkillGroup === index ? " hard-skills-list-selected hard-skills-list" : "hard-skills-list"}>
                                 {group.skills.map((skill) => (
                                     <span className="hard-skill" key={skill}>{skill}</span>
                                 ))}
                             </div>
-                        </section>
+                        </div>
                     ))}
                 </div>
 

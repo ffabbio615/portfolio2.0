@@ -7,24 +7,15 @@
     padding: 0;
 
     .soft-skills-container{
-        width: 100%;
-        height: 100%;
-        max-width: 800px;
-        margin-inline: auto;
-        background-color: $neutral-color-white;
-        padding-inline: 3cqw;
-        padding-block: 3.5cqh;
-        text-align: justify;
-        text-align-last: left;
-        overflow-y: auto;
+        @include default-about-me-contents();
 
         .soft-skills-text-container {
             width: 90%;
             margin-bottom: 12px;
     
             .soft-skills-title {
-                @include font-config($fbold, $fc36px, $fdisplay, $neutral-color-dark-gray, 1);
-                margin-bottom: 20px;
+                @include font-config($fbold, $fc32px, $fdisplay, $neutral-color-dark-gray, 1);
+                margin-bottom: 16px;
             }
     
             .soft-skills-subtitle {
@@ -34,14 +25,14 @@
         }
     
         .soft-skills-content {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
     
             .soft-skill-card {
-                padding: 24px;
+                padding: 20px 24px 20px 24px;
                 background-color: $neutral-color-white;
                 border: 2px solid rgba($neutral-color-medium-gray, 0.4);
                 border-radius: 20px;

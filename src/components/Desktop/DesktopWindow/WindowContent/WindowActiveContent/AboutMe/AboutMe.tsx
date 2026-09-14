@@ -3,7 +3,7 @@ import './AboutMe.scss';
 export default function AboutMe() {
     return (
         <div className="about-me-main-container">
-            <section className="about-me-content">
+            <div className="about-me-content">
                 <h4 className='about-me-title'>Sobre Mim</h4>
 
                 <p className='about-me-paragraph'>
@@ -25,7 +25,7 @@ export default function AboutMe() {
                 <p className='about-me-paragraph'>
                     Gosto de transformar problemas em soluções simples, funcionais e visualmente bem construídas. Busco oportunidades como Desenvolvedor Front-end Júnior ou Full Stack Júnior, onde possa continuar evoluindo tecnicamente e contribuir para produtos reais.
                 </p>
-            </section>
+            </div>
         </div>
     );
 }

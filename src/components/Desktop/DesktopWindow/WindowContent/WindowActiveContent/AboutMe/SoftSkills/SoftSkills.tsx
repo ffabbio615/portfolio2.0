@@ -8,7 +8,7 @@ type SoftSkill = {
 const softSkills: SoftSkill[] = [
     {
         title: "Comunicação",
-        description: "Facilidade para comunicar ideias, explicar decisões e interagir com equipes e diferentes perfis profissionais."
+        description: "Facilidade para comunicar ideias, explicar decisões, lidar com equipes e diversos perfis profissionais."
     },
     {
         title: "Resolução de Problemas",
@@ -32,7 +32,7 @@ const softSkills: SoftSkill[] = [
     },
     {
         title: "Visão de Produto",
-        description: "Capacidade de observar uma aplicação além do código, considerando usabilidade, experiência do usuário e objetivos do produto."
+        description: "Capacidade de observar aplicações além do código, considerando usabilidade, experiência do usuário e objetivos do produto."
     },
     {
         title: "Adaptabilidade",
