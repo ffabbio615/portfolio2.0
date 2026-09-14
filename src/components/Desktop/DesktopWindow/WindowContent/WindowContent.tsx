@@ -7,6 +7,8 @@ import AboutMe from './WindowActiveContent/AboutMe/AboutMe';
 import SoftSkills from './WindowActiveContent/AboutMe/SoftSkills/SoftSkills';
 import HardSkills from './WindowActiveContent/AboutMe/HardSkills/HardSkills';
 import EmptyFolder from './WindowActiveContent/EmptyFolder/EmptyFolder';
+import ProjectMain from './WindowActiveContent/Project/ProjectMain';
+import ProjectTypes from './WindowActiveContent/Project/ProjectTypes';
 
 type WindowContentProps = {
     windowMode: WindowMode;
@@ -17,6 +19,8 @@ export default function WindowContent({ windowMode, activeContent }: WindowConte
 
     const handleActiveContent = (content: ActiveContent)=>{
         switch(content){
+
+            //ITENS DO DOCK
             case "w-about-me":
                 return <AboutMe />;
 
@@ -39,7 +43,25 @@ export default function WindowContent({ windowMode, activeContent }: WindowConte
                 return <CurriculumTypes content={content} />;
 
             case "w-projects":
-                return;
+                return <ProjectMain />;
+
+            case "w-pronto-abrigo":
+                return <ProjectTypes content={content} />
+
+            case "w-vocabary":
+                return <ProjectTypes content={content} />
+
+            case "w-prime-language":
+                return <ProjectTypes content={content} />
+
+            case "w-capiwaras":
+                return <ProjectTypes content={content} />
+
+            case "w-medicos-dentistas":
+                return <ProjectTypes content={content} />
+
+            case "w-portfolio2":
+                return <ProjectTypes content={content} />
 
             case "w-contact":
                 return <ContactMain />;

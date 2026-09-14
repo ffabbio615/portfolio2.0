@@ -1,3 +1,4 @@
+import AboutSystem from './AboutSystem/AboutSystem';
 import AssistantRobot from './AssistantRobot/AssistantRobot';
 import './TopBar.scss';
 import { useEffect, useRef, useState } from "react";
@@ -81,6 +82,8 @@ export default function TopBar() {
     };
   }, []);
 
+  const [isAboutSystemVisible, setIsAboutSystemVisible] = useState<boolean>(false);
+
 
   return (
 
@@ -123,8 +126,10 @@ export default function TopBar() {
                 </li>
             </ul> */}
 
-            <button type="button" className="settings-about" onClick={()=> setSettingsMenu(false)}>Sobre o Portfólio</button>
+            <button type="button" className="settings-about" onClick={()=> {setSettingsMenu(false); setIsAboutSystemVisible(!isAboutSystemVisible)}}>Sobre o Portfólio</button>
         </nav>
+        
+        { isAboutSystemVisible && <AboutSystem onClose={() => setIsAboutSystemVisible(false)} /> }
       </div>
 
       <div className='right-side'>

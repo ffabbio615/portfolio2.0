@@ -21,6 +21,7 @@
     background-color: rgba($neutral-color-black, 0.5);
     transition: opacity 0.3s ease;
     will-change: contents;
+    backdrop-filter: blur(4px);
 }
 
 .search-input-background-activated{
