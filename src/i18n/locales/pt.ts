@@ -188,4 +188,14 @@ export const pt = {
         }
     },
 
+
+
+    emptyFolder: {
+        message: "Conteúdo Indisponível"
+    },
+
+
+
+    
+
 };

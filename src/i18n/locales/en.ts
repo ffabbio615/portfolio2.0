@@ -188,4 +188,14 @@ export const en = {
         }
     },
 
+
+
+    emptyFolder: {
+        message: "Content Unavailable"
+    },
+
+
+
+    
+
 };

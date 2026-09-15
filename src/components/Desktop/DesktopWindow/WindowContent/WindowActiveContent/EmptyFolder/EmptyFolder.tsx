@@ -1,7 +1,11 @@
 import './EmptyFolder.scss';
 
-export default function EmptyFolder(){
-    return(
-        <span className='empty-folder-message'>Conteúdo Indisponível</span>
+import { useTranslation } from "react-i18next";
+
+export default function EmptyFolder() {
+    const { t } = useTranslation();
+
+    return (
+        <span className="empty-folder-message">{t("emptyFolder.message")}</span>
     );
 }
