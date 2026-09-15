@@ -41,6 +41,22 @@ export default function Desktop() {
 
     const { t } = useTranslation();
 
+    const getWindowTitle = (window: WindowData) => {
+        const titles: Record<string, string> = {
+            "w-hobbies": t("desktop.folders.hobbies"),
+            "w-music": t("desktop.folders.music"),
+            "w-movies": t("desktop.folders.movies"),
+            "w-trips": t("desktop.folders.trips"),
+
+            "w-about-me": t("dock.aboutMe"),
+            "w-curriculum": t("dock.curriculum"),
+            "w-projects": t("dock.projects"),
+            "w-contact": t("dock.contact")
+        };
+
+        return titles[window.id] || window.title;
+    };
+
     const desktopRef = useRef<HTMLElement>(null);
 
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -422,7 +438,7 @@ export default function Desktop() {
                 <DesktopWindow
                     key={window.id}
                     id={window.id}
-                    title={folders.some(folder => `w-${folder.id}` === window.id) ? t(window.title) : window.title}
+                    title={getWindowTitle(window)}
                     icon={window.icon}
                     position={window.position}
                     index={window.index}
@@ -448,7 +464,7 @@ export default function Desktop() {
                     <DesktopWindow
                         key={window.id}
                         id={window.id}
-                        title={folders.some(folder => `w-${folder.id}` === window.id) ? t(window.title) : window.title}
+                        title={getWindowTitle(window)}
                         icon={window.icon}
                         position={window.position}
                         index={window.index}
