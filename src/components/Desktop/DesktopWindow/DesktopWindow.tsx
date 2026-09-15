@@ -1,4 +1,5 @@
 import "./DesktopWindow.scss";
+import { useTranslation } from "react-i18next";
 import { useRef, useState } from "react";
 import { useDraggable } from "../../../hooks/useDraggable";
 import type { WindowProps, Position, ActiveContent } from "./DesktopWindow.types";
@@ -6,6 +7,8 @@ import WindowSidebar from "./WindowSidebar/WindowSidebar";
 import WindowContent from "./WindowContent/WindowContent";
 
 export default function DesktopWindow({id, title, icon, position, index, windowMode, selected, isFront, onClick, onDoubleClick, onMinimize, onMove, onPointerDown, onClose, desktopRef,}: WindowProps){
+
+    const { t } = useTranslation();
 
     const windowRef = useRef<HTMLElement>(null);
 
@@ -65,23 +68,25 @@ export default function DesktopWindow({id, title, icon, position, index, windowM
             >
 
                 <div className="window-title">
-                    <img src={icon} alt={`Ícone da pasta ${title}`} />
+                    <img src={icon} alt={t("desktopWindow.folderIconAlt", { title })} />
                     <h3>{title}</h3>
                 </div>
 
                 <div className="window-behavior-buttons">
-                    <button className="behavior-button" title={windowMode !== "minimized" ? "Minimizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()}
+                    <button className="behavior-button" title={windowMode !== "minimized" ? t("desktopWindow.minimize") : t("desktopWindow.restore")} 
+                    onPointerDown={(e) => e.stopPropagation()}
                     onClick={(e) => {e.stopPropagation(); onMinimize(id); }}>
-                        <img src={"/icon/window/yellow-circle-icon.svg"} alt="Ícone de minimizar a janela" />
+                        <img src="/icon/window/yellow-circle-icon.svg" alt={t("desktopWindow.minimizeIconAlt")} />
                     </button>
                     
-                    <button className="behavior-button" title={windowMode === "windowed" ? "Maximizar" : "Restaurar"}  onPointerDown={(e) => e.stopPropagation()} 
+                    <button className="behavior-button" title={windowMode === "windowed" ? t("desktopWindow.maximize") : t("desktopWindow.restore")}  
+                    onPointerDown={(e) => e.stopPropagation()} 
                     onClick={(e) => {e.stopPropagation(); onDoubleClick?.(id);}}>
-                        <img src={"/icon/window/green-circle-icon.svg"} alt="Ícone de maximizar a janela" />
+                        <img src="/icon/window/green-circle-icon.svg" alt={t("desktopWindow.maximizeIconAlt")} />
                     </button>
                     
-                    <button className="behavior-button" title={"Fechar"} onPointerDown={(e) => e.stopPropagation()} onClick={(e)=> {e.stopPropagation(); onClose(id);}}>
-                        <img src={"/icon/window/red-circle-icon.svg"} alt="Ícone de fechar a janela" />
+                    <button className="behavior-button" title={t("desktopWindow.close")} onPointerDown={(e) => e.stopPropagation()} onClick={(e)=> {e.stopPropagation(); onClose(id);}}>
+                        <img src="/icon/window/red-circle-icon.svg" alt={t("desktopWindow.closeIconAlt")} />
                     </button>
                 </div>
 

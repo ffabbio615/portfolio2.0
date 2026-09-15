@@ -43,4 +43,21 @@ export const pt = {
         contact: "Contato",
         buttonAlt: "Imagem do botão {{name}} do dock"
     },
+
+
+
+    desktopWindow: {
+        folderIconAlt: "Ícone da pasta {{title}}",
+        minimize: "Minimizar",
+        maximize: "Maximizar",
+        restore: "Restaurar",
+        close: "Fechar",
+        minimizeIconAlt: "Ícone de minimizar a janela",
+        maximizeIconAlt: "Ícone de maximizar a janela",
+        closeIconAlt: "Ícone de fechar a janela"
+    },
+
+
+
+    
 };

@@ -43,4 +43,21 @@ export const en = {
         contact: "Contact",
         buttonAlt: "Dock {{name}} button image"
     },
+
+
+
+    desktopWindow: {
+        folderIconAlt: "{{title}} folder icon",
+        minimize: "Minimize",
+        maximize: "Maximize",
+        restore: "Restore",
+        close: "Close",
+        minimizeIconAlt: "Minimize window icon",
+        maximizeIconAlt: "Maximize window icon",
+        closeIconAlt: "Close window icon"
+    },
+
+
+
+    
 };
