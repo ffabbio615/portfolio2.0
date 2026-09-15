@@ -15,7 +15,7 @@ i18n
                 translation: en
             }
         },
-        lng: "pt",
+        lng: localStorage.getItem("portfolio-language") || "pt",
         fallbackLng: "pt",
         interpolation: {
             escapeValue: false

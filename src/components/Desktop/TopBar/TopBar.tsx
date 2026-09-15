@@ -1,8 +1,12 @@
 import './TopBar.scss';
+
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import AboutSystem from './AboutSystem/AboutSystem';
 import AssistantRobot from './AssistantRobot/AssistantRobot';
+
+const LANGUAGE_STORAGE_KEY = "portfolio-language";
 
 export default function TopBar() {
 
@@ -34,6 +38,8 @@ export default function TopBar() {
     const [location, setLocation] = useState(t("topBar.locating"));
 
     useEffect(() => {
+        const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+
         navigator.geolocation.getCurrentPosition(
             async (position) => {
                 const { latitude, longitude } = position.coords;
@@ -52,20 +58,46 @@ export default function TopBar() {
                         data.address.municipality;
 
                     setLocation(city || t("topBar.defaultLocation"));
+
+                    if (!savedLanguage) {
+                        const countryCode = data.address.country_code?.toLowerCase();
+                        const detectedLanguage = countryCode === "br" ? "pt" : "en";
+
+                        localStorage.setItem(LANGUAGE_STORAGE_KEY, detectedLanguage);
+                        await i18n.changeLanguage(detectedLanguage);
+                    }
                 } catch (error) {
                     console.error(error);
                     setLocation(t("topBar.defaultLocation"));
+
+                    if (!savedLanguage) {
+                        localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+                        await i18n.changeLanguage("en");
+                    }
                 }
             },
 
-            (error) => {
+            async (error) => {
                 console.error(error);
                 setLocation(t("topBar.defaultLocation"));
+
+                if (!savedLanguage) {
+                    localStorage.setItem(LANGUAGE_STORAGE_KEY, "en");
+                    await i18n.changeLanguage("en");
+                }
             }
         );
-    }, [t]);
+    }, [i18n, t]);
+
+
+    const handleLanguageChange = async (language: "pt" | "en") => {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+        await i18n.changeLanguage(language);
+        setSettingsMenu(false);
+    };
 
     const [settingsMenu, setSettingsMenu] = useState<boolean>(false);
+
     const settingsRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -106,23 +138,21 @@ export default function TopBar() {
 
                     <ul className="settings-submenu language-submenu">
                         <li>
-                            <button className="settings-submenu-button" type="button" onClick={() => { setSettingsMenu(false); i18n.changeLanguage("pt"); }}>Português</button>
+                            <button className="settings-submenu-button" type="button" onClick={() => handleLanguageChange("pt")}>Português</button>
                         </li>
 
                         <li>
-                            <button className="settings-submenu-button" type="button" onClick={() => { setSettingsMenu(false); i18n.changeLanguage("en"); }}>English</button>
+                            <button className="settings-submenu-button" type="button" onClick={() => handleLanguageChange("en")}>English</button>
                         </li>
                     </ul>
 
                     {/* <span className="settings-menu-label">Tema <span>❯</span></span>
-
                     <ul className="settings-submenu theme-submenu">
                         <li>
-                            <button className='settings-submenu-button' type="button" onClick={()=> setSettingsMenu(false)}>Claro</button>
+                            <button className='settings-submenu-button' type="button" onClick={() => setSettingsMenu(false)}>Claro</button>
                         </li>
-
                         <li>
-                            <button className='settings-submenu-button' type="button" onClick={()=> setSettingsMenu(false)}>Escuro</button>
+                            <button className='settings-submenu-button' type="button" onClick={() => setSettingsMenu(false)}>Escuro</button>
                         </li>
                     </ul> */}
 
@@ -139,7 +169,6 @@ export default function TopBar() {
 
                 <span className="topbar-location">{location}</span>
             </div>
-            
         </div>
     );
 }
