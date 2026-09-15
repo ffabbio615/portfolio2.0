@@ -147,4 +147,23 @@ export const en = {
         authentication: "Authentication",
         componentization: "Componentisation"
     },
+
+
+
+    contact: {
+        title: "Contact Me",
+        description: "Fill in the form below to send a message directly to my email.",
+        name: "Name",
+        namePlaceholder: "Enter your name",
+        email: "Email",
+        emailPlaceholder: "Enter your email",
+        message: "Message",
+        messagePlaceholder: "Enter your message",
+        send: "Send message",
+        success: "Message sent successfully!",
+        error: "Unable to send your message. Please try again.",
+        loadingAlt: "Form submission loading animation"
+    },
+    
+
 };

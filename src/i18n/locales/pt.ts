@@ -148,4 +148,21 @@ export const pt = {
         componentization: "Componentização"
     },
 
+
+
+    contact: {
+        title: "Entre em Contato",
+        description: "Preencha o formulário abaixo para enviar uma mensagem diretamente para o meu e-mail.",
+        name: "Nome",
+        namePlaceholder: "Digite seu nome",
+        email: "E-mail",
+        emailPlaceholder: "Digite seu e-mail",
+        message: "Mensagem",
+        messagePlaceholder: "Digite sua mensagem",
+        send: "Enviar mensagem",
+        success: "Mensagem enviada com sucesso!",
+        error: "Não foi possível enviar a mensagem. Tente novamente.",
+        loadingAlt: "Animação de carregamento de envio de formulário"
+    },
+
 };
