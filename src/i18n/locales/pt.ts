@@ -22,4 +22,14 @@ export const pt = {
         lastUpdateValue: "Setembro de 2026",
         copyright: "Todos os direitos reservados."
     },
+    assistantRobot: {
+        placeholder: "Pergunte algo sobre mim...",
+        searchIconAlt: "Ícone de lupa da barra de pesquisa",
+        robotAlt: "Robô Assistente",
+        portfolioLogoAlt: "Logo do Portfólio",
+        title: "Portfólio: Informações Profissionais",
+        closeButtonAlt: "Botão do ícone de fechar janela",
+        loadingAlt: "Animação de carregamento de resposta da I.A",
+        error: "Não foi possível consultar o assistente no momento."
+    },
 };

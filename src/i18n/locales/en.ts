@@ -22,4 +22,14 @@ export const en = {
         lastUpdateValue: "September 2026",
         copyright: "All rights reserved."
     },
+    assistantRobot: {
+        placeholder: "Ask something about me...",
+        searchIconAlt: "Search bar magnifying glass icon",
+        robotAlt: "Assistant Robot",
+        portfolioLogoAlt: "Portfolio logo",
+        title: "Portfolio: Professional Information",
+        closeButtonAlt: "Close window button",
+        loadingAlt: "AI response loading animation",
+        error: "Unable to reach the assistant at the moment."
+    },
 };
