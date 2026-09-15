@@ -9,5 +9,17 @@ export const pt = {
         aboutPortfolio: "Sobre o Portfólio",
         locating: "Localizando...",
         defaultLocation: "RJ - Brasil"
-    }
+    },
+    aboutSystem: {
+        title: "Sobre Portfolio 2.0",
+        closeButtonAlt: "Botão do ícone de fechar janela",
+        portfolioLogoAlt: "Logo do Portfólio",
+        version: "Versão:",
+        technologies: "Tecnologias:",
+        backend: "Back-end:",
+        artificialIntelligence: "Inteligência Artificial:",
+        lastUpdate: "Última atualização:",
+        lastUpdateValue: "Setembro de 2026",
+        copyright: "Todos os direitos reservados."
+    },
 };
