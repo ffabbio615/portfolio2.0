@@ -164,6 +164,28 @@ export const en = {
         error: "Unable to send your message. Please try again.",
         loadingAlt: "Form submission loading animation"
     },
-    
+
+
+
+    curriculum: {
+        title: "Download CV",
+        description: "Choose a version below or view it directly in the window using the options on the side",
+        download: "Download",
+
+        interactive: {
+            title: "Interactive CV",
+            description: "CV with a custom layout and clickable links to contact information and projects."
+        },
+
+        portuguese: {
+            title: "Portuguese CV",
+            description: "CV in Portuguese featuring work experience, education, technical skills, and key projects."
+        },
+
+        english: {
+            title: "European English CV",
+            description: "CV in English featuring work experience, education, technical skills, and key projects."
+        }
+    },
 
 };

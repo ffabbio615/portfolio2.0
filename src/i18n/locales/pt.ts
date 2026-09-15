@@ -165,4 +165,27 @@ export const pt = {
         loadingAlt: "Animação de carregamento de envio de formulário"
     },
 
+
+
+    curriculum: {
+        title: "Download de Currículo",
+        description: "Escolha um modelo abaixo ou visualize direto na janela com as opções ao lado",
+        download: "Baixar",
+
+        interactive: {
+            title: "Currículo Interativo",
+            description: "Currículo com layout personalizado e links clicáveis para contatos e projetos."
+        },
+
+        portuguese: {
+            title: "Currículo Simples Português",
+            description: "Resumo com experiência, formação, competências técnicas e principais projetos."
+        },
+
+        english: {
+            title: "Currículo European English",
+            description: "Currículo em inglês com experiência profissional, formação, competências técnicas e principais projetos."
+        }
+    },
+
 };
