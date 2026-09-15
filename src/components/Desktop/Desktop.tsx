@@ -1,5 +1,6 @@
 import './Desktop.scss';
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import TopBar from "./TopBar/TopBar";
 import FolderIcon from "./FolderIcon/FolderIcon";
 import DesktopWindow from "./DesktopWindow/DesktopWindow";
@@ -38,14 +39,16 @@ const getSavedWindowLastMode = (): WindowMode => {
 
 export default function Desktop() {
 
+    const { t } = useTranslation();
+
     const desktopRef = useRef<HTMLElement>(null);
 
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
     const [folders, setFolders] = useState([
-        {
+    {
             id: "hobbies",
-            name: "Hobbies",
+            nameKey: "desktop.folders.hobbies",
             icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
@@ -54,7 +57,7 @@ export default function Desktop() {
         },
         {
             id: "music",
-            name: "Músicas",
+            nameKey: "desktop.folders.music",
             icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
@@ -63,7 +66,7 @@ export default function Desktop() {
         },
         {
             id: "movies",
-            name: "Filmes",
+            nameKey: "desktop.folders.movies",
             icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
@@ -72,7 +75,7 @@ export default function Desktop() {
         },
         {
             id: "trips",
-            name: "VIAGENS",
+            nameKey: "desktop.folders.trips",
             icon: "/icon/desktop/folder-icon.svg",
             position: {
                 x: 20,
@@ -154,7 +157,7 @@ export default function Desktop() {
                 ...reorganizedWindows,
                 {
                     id: `w-${folder.id}`,
-                    title: folder.name,
+                    title: folder.nameKey,
                     icon: folder.icon,
                     position: newPosition,
                     index: reorganizedWindows.length + 1,
@@ -403,7 +406,7 @@ export default function Desktop() {
             <FolderIcon
                 key={folder.id}
                 id={folder.id}
-                name={folder.name}
+                name={t(folder.nameKey)}
                 icon={folder.icon}
                 position={folder.position}
                 selected={selectedId === folder.id}
@@ -419,7 +422,7 @@ export default function Desktop() {
                 <DesktopWindow
                     key={window.id}
                     id={window.id}
-                    title={window.title}
+                    title={folders.some(folder => `w-${folder.id}` === window.id) ? t(window.title) : window.title}
                     icon={window.icon}
                     position={window.position}
                     index={window.index}
@@ -445,7 +448,7 @@ export default function Desktop() {
                     <DesktopWindow
                         key={window.id}
                         id={window.id}
-                        title={window.title}
+                        title={folders.some(folder => `w-${folder.id}` === window.id) ? t(window.title) : window.title}
                         icon={window.icon}
                         position={window.position}
                         index={window.index}

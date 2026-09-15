@@ -196,6 +196,13 @@ export const pt = {
 
 
 
-    
+    desktop: {
+        folders: {
+            hobbies: "Hobbies",
+            music: "Músicas",
+            movies: "Filmes",
+            trips: "VIAGENS"
+        }
+    },
 
 };

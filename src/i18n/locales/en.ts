@@ -196,6 +196,13 @@ export const en = {
 
 
 
-    
+    desktop: {
+        folders: {
+            hobbies: "Hobbies",
+            music: "Music",
+            movies: "Movies",
+            trips: "TRIPS"
+        }
+    },
 
 };
