@@ -75,7 +75,6 @@ export const pt = {
         projects: "Projetos",
         overview: "Visão Geral",
         githubRepositories: "Repositórios GitHub",
-        deployments: "Deployments",
 
         form: "Formulário",
         directLinks: "Links Diretos"

@@ -8,7 +8,6 @@ import SoftSkills from './WindowActiveContent/AboutMe/SoftSkills/SoftSkills';
 import HardSkills from './WindowActiveContent/AboutMe/HardSkills/HardSkills';
 import EmptyFolder from './WindowActiveContent/EmptyFolder/EmptyFolder';
 import ProjectMain from './WindowActiveContent/Project/ProjectMain';
-import ProjectTypes from './WindowActiveContent/Project/ProjectTypes';
 
 type WindowContentProps = {
     windowMode: WindowMode;
@@ -44,24 +43,6 @@ export default function WindowContent({ windowMode, activeContent }: WindowConte
 
             case "w-projects":
                 return <ProjectMain />;
-
-            case "w-pronto-abrigo":
-                return <ProjectTypes content={content} />
-
-            case "w-vocabary":
-                return <ProjectTypes content={content} />
-
-            case "w-prime-language":
-                return <ProjectTypes content={content} />
-
-            case "w-capiwaras":
-                return <ProjectTypes content={content} />
-
-            case "w-medicos-dentistas":
-                return <ProjectTypes content={content} />
-
-            case "w-portfolio2":
-                return <ProjectTypes content={content} />
 
             case "w-contact":
                 return <ContactMain />;

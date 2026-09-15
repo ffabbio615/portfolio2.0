@@ -75,7 +75,6 @@ export const en = {
         projects: "Projects",
         overview: "Overview",
         githubRepositories: "GitHub Repositories",
-        deployments: "Deployments",
 
         form: "Form",
         directLinks: "Direct Links"

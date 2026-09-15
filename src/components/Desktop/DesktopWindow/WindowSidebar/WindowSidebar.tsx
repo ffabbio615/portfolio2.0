@@ -120,35 +120,6 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                                 },
                             }
                         },
-                        {
-                            title: t("windowSidebar.deployments"),
-                            buttons: {
-                                button2: {
-                                    label: "Pronto Abrigo",
-                                    content: "w-pronto-abrigo",
-                                },
-                                button3: {
-                                    label: "Vocabary",
-                                    content: "w-vocabary",
-                                },
-                                button4: {
-                                    label: "Prime Language",
-                                    content: "w-prime-language",
-                                },
-                                button5: {
-                                    label: "CapiWaras",
-                                    content: "w-capiwaras",
-                                },
-                                button6: {
-                                    label: "Médicos & Dentistas",
-                                    content: "w-medicos-dentistas",
-                                },
-                                button7: {
-                                    label: "Portfólio 2.0",
-                                    content: "w-portfolio2",
-                                }
-                            }
-                        }
                     ]);
                 break;
 
