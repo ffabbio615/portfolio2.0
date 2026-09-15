@@ -83,5 +83,69 @@ export const pt = {
 
 
 
-    
+    aboutMe: {
+        title: "Sobre Mim",
+        paragraph1: "Olá! Eu sou Fábio Marques Melo, desenvolvedor Full Stack com experiência em React, Next.js, TypeScript, JavaScript e Node.js.",
+        paragraph2: "Minha trajetória une tecnologia e design. Sou formado em Sistemas de Informação, Análise e Desenvolvimento de Sistemas e Design Gráfico, o que me permite desenvolver aplicações pensando não apenas no código, mas também na experiência do usuário, organização visual e usabilidade.",
+        paragraph3: "Atualmente atuo como Agente de Inovação pela FAPERJ, avaliando produtos digitais, MVPs e soluções SaaS, além de orientar startups em aspectos técnicos, experiência do usuário, navegação e aderência tecnológica.",
+        paragraph4: "Também desenvolvo projetos próprios e profissionais utilizando tecnologias modernas do ecossistema JavaScript, trabalhando com interfaces responsivas, integração com APIs, autenticação, bancos de dados e desenvolvimento de aplicações Full Stack.",
+        paragraph5: "Gosto de transformar problemas em soluções simples, funcionais e visualmente bem construídas. Busco oportunidades como Desenvolvedor Front-end Júnior ou Full Stack Júnior, onde possa continuar evoluindo tecnicamente e contribuir para produtos reais."
+    },
+    softSkills: {
+        title: "Soft Skills",
+        subtitle: "Competências que fazem parte da forma como trabalho, colaboro e resolvo problemas:",
+
+        communication: {
+            title: "Comunicação",
+            description: "Facilidade para comunicar ideias, explicar decisões, lidar com equipes e diversos perfis profissionais."
+        },
+
+        problemSolving: {
+            title: "Resolução de Problemas",
+            description: "Capacidade de analisar problemas, identificar possíveis causas e desenvolver soluções práticas."
+        },
+
+        teamwork: {
+            title: "Trabalho em Equipe",
+            description: "Experiência colaborando com diferentes pessoas e contribuindo para objetivos compartilhados."
+        },
+
+        organization: {
+            title: "Organização",
+            description: "Planejamento de tarefas, prioridades e etapas de desenvolvimento de forma estruturada."
+        },
+
+        analyticalThinking: {
+            title: "Pensamento Analítico",
+            description: "Análise de requisitos, interfaces e fluxos para identificar melhorias e tomar decisões fundamentadas."
+        },
+
+        continuousLearning: {
+            title: "Aprendizado Contínuo",
+            description: "Interesse constante em aprender novas tecnologias, ferramentas e práticas de desenvolvimento."
+        },
+
+        productVision: {
+            title: "Visão de Produto",
+            description: "Capacidade de observar aplicações além do código, considerando usabilidade, experiência do usuário e objetivos do produto."
+        },
+
+        adaptability: {
+            title: "Adaptabilidade",
+            description: "Facilidade para aprender novos processos, ferramentas e tecnologias conforme as necessidades de cada projeto."
+        }
+    },
+    hardSkills: {
+        title: "Hard Skills",
+        subtitle: "Tecnologias, ferramentas e conhecimentos que utilizo no desenvolvimento de aplicações:",
+        backend: "Back-end",
+        databaseServices: "Banco de Dados e Serviços",
+        integrationJavaScript: "Integração e JavaScript",
+        graphicDesign: "Design Gráfico",
+        toolsDeploy: "Ferramentas e Deploy",
+        otherKnowledge: "Outros Conhecimentos",
+        authentication: "Autenticação",
+        componentization: "Componentização"
+    },
+
 };
