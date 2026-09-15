@@ -32,4 +32,15 @@ export const en = {
         loadingAlt: "AI response loading animation",
         error: "Unable to reach the assistant at the moment."
     },
+
+
+
+    dock: {
+        ariaLabel: "Applications",
+        aboutMe: "About Me",
+        curriculum: "CV",
+        projects: "Projects",
+        contact: "Contact",
+        buttonAlt: "Dock {{name}} button image"
+    },
 };

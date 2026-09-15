@@ -32,4 +32,15 @@ export const pt = {
         loadingAlt: "Animação de carregamento de resposta da I.A",
         error: "Não foi possível consultar o assistente no momento."
     },
+
+
+
+    dock: {
+        ariaLabel: "Aplicativos",
+        aboutMe: "Sobre Mim",
+        curriculum: "Currículo",
+        projects: "Projetos",
+        contact: "Contato",
+        buttonAlt: "Imagem do botão {{name}} do dock"
+    },
 };
