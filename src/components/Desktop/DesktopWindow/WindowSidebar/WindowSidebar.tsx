@@ -1,4 +1,5 @@
 import './WindowSidebar.scss';
+import { useTranslation } from "react-i18next";
 import type { ActiveContent, WindowMode } from "../DesktopWindow.types";
 import { useEffect, useState } from 'react';
 
@@ -21,6 +22,8 @@ interface ButtonConfig {
 }
 
 export default function WindowSidebar({ windowMode, windowSidebarContent, activeContent, setActiveContent }: WindowSidebarProps){
+
+    const { t } = useTranslation();
 
     const [sidebarContent, setSidebarContent] = useState<SidebarSection[]>([]);
 
@@ -51,18 +54,18 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                 case "w-about-me":
                     setSidebarContent([
                         {
-                            title: "Profissional",
+                            title: t("windowSidebar.professional"),
                             buttons: {
                                 button1: {
-                                    label: "Sobre Mim",
+                                    label: t("windowSidebar.aboutMe"),
                                     content: "w-about-me"
                                 },
                                 button2: {
-                                    label: "Soft Skills",
+                                    label: t("windowSidebar.softSkills"),
                                     content: "w-soft-skills"
                                 },
                                 button3: {
-                                    label: "Hard Skills",
+                                    label: t("windowSidebar.hardSkills"),
                                     content: "w-hard-skills"
                                 }
                             }
@@ -73,53 +76,52 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                 case "w-curriculum":
                     setSidebarContent([
                         {
-                            title: "Download",
+                            title: t("windowSidebar.download"),
                             buttons: {
                                 button1: {
-                                    label: "Salvar currículo",
+                                    label: t("windowSidebar.saveCurriculum"),
                                     content: "w-curriculum"
                                 }
                             }
                         },
                         {
-                            title: "Currículos",
+                            title: t("windowSidebar.curriculums"),
                             buttons: {
                                 button1: {
-                                    label: "Layout Personalizado",
+                                    label: t("windowSidebar.customLayout"),
                                     content: "w-interactive-curriculum"
                                 },
                                 button2: {
-                                    label: "Simples Português",
+                                    label: t("windowSidebar.simplePortuguese"),
                                     content: "w-simple-curriculum-pt"
                                 },
                                 button3: {
-                                    label: "European English",
+                                    label: t("windowSidebar.europeanEnglish"),
                                     content: "w-simple-curriculum-en"
                                 },
                             }
                         }
                     ]);
-
                 break;
 
                 case "w-projects":
                     setSidebarContent([
                         {
-                            title: "Projetos",
+                            title: t("windowSidebar.projects"),
                             buttons: {
                                 button1: {
-                                    label: "Visão Geral",
+                                    label: t("windowSidebar.overview"),
                                     content: "w-projects",
                                 },
                                 button2: {
-                                    label: "Repositórios GitHub",
+                                    label: t("windowSidebar.githubRepositories"),
                                     content: "w-github",
                                     link: "https://github.com/ffabbio615?tab=repositories",
                                 },
                             }
                         },
                         {
-                            title: "Deployments",
+                            title: t("windowSidebar.deployments"),
                             buttons: {
                                 button2: {
                                     label: "Pronto Abrigo",
@@ -153,7 +155,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                 case "w-contact":
                     setSidebarContent([
                         {
-                            title: "Formulário",
+                            title: t("windowSidebar.form"),
                             buttons: {
                                 button1: {
                                     label: "E-mail",
@@ -162,7 +164,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
                             }
                         },
                         {
-                            title: "Links Diretos",
+                            title: t("windowSidebar.directLinks"),
                             buttons: {
                                 button1: {
                                     label: "WhatsApp",
@@ -191,7 +193,7 @@ export default function WindowSidebar({ windowMode, windowSidebarContent, active
 
         handleSidebarContent();
 
-    }, [windowSidebarContent]);
+    }, [windowSidebarContent, t]);
 
     return (
         <aside className={`window-sidebar window-sidebar-${windowMode}`}>

@@ -59,5 +59,29 @@ export const en = {
 
 
 
+    windowSidebar: {
+        professional: "Professional",
+        aboutMe: "About Me",
+        softSkills: "Soft Skills",
+        hardSkills: "Hard Skills",
+
+        download: "Download",
+        saveCurriculum: "Download CV",
+        curriculums: "CVs",
+        customLayout: "Custom Layout",
+        simplePortuguese: "Portuguese CV",
+        europeanEnglish: "European English",
+
+        projects: "Projects",
+        overview: "Overview",
+        githubRepositories: "GitHub Repositories",
+        deployments: "Deployments",
+
+        form: "Form",
+        directLinks: "Direct Links"
+    },
+
+
+
     
 };
