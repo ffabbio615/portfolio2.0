@@ -43,6 +43,27 @@ const images = [
     "/icon/windowsContents/curriculum/curriculum-pt-icon.svg",
     "/icon/windowsContents/curriculum/curriculum-en-icon.svg",
 
+    //Projetos
+    //Mockups
+    "/image/project/pronto-abrigo-mockup.webp",
+    "/image/project/prime-mockup.webp",
+    "/image/project/medicos-dentistas-mockup.webp",
+    "/image/project/vocabary-mockup.webp",
+    "/image/project/capiwaras-mockup.webp",
+    "/image/project/portfolio2.0-mockup.webp",
+    //Ícones de Tecnologias
+    "/icon/windowsContents/project/css-icon.png",
+    "/icon/windowsContents/project/express-icon.svg",
+    "/icon/windowsContents/project/firebase-icon.svg",
+    "/icon/windowsContents/project/javascript-icon.svg",
+    "/icon/windowsContents/project/node-icon.svg",
+    "/icon/windowsContents/project/postgresql-icon.svg",
+    "/icon/windowsContents/project/react-icon.svg",
+    "/icon/windowsContents/project/sass-icon.svg",
+    "/icon/windowsContents/project/supabase-icon.svg",
+    "/icon/windowsContents/project/typescript-icon.svg",
+    "/icon/windowsContents/project/vite-icon.png",
+
     //Contato
     "/icon/windowsContents/contact/dots-loading.gif",
   
