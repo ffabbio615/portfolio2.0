@@ -135,7 +135,7 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
 
                 <p className="project-details-description">Descrição: {project.description}</p>
 
-                <h5>Principais funcionalidades:</h5>
+                <h5 className="project-details-functionalities">Principais funcionalidades:</h5>
 
                 <ul className="project-details-features">
                     {project.features.map((feature) => (
@@ -143,11 +143,11 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
                     ))}
                 </ul>
 
-                <h5>Tecnologias</h5>
+                <h5 className="project-details-technologies-title">Tecnologias</h5>
 
                 <div className="project-details-technologies">
                     {project.technologies.map((technology) => (
-                        <span key={technology}>{technology}</span>
+                        <span className="technology" key={technology}>{technology}</span>
                     ))}
                 </div>
 

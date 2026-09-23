@@ -52,16 +52,17 @@ const images = [
     "/image/project/capiwaras-mockup.webp",
     "/image/project/portfolio2.0-mockup.webp",
     //Ícones de Tecnologias
+    "/icon/windowsContents/project/react-icon.svg",
+    "/icon/windowsContents/project/javascript-icon.svg",
+    "/icon/windowsContents/project/typescript-icon.svg",
     "/icon/windowsContents/project/css-icon.png",
+    "/icon/windowsContents/project/sass-icon.svg",
+    "/icon/windowsContents/project/node-icon.svg",
     "/icon/windowsContents/project/express-icon.svg",
     "/icon/windowsContents/project/firebase-icon.svg",
-    "/icon/windowsContents/project/javascript-icon.svg",
-    "/icon/windowsContents/project/node-icon.svg",
     "/icon/windowsContents/project/postgresql-icon.svg",
-    "/icon/windowsContents/project/react-icon.svg",
-    "/icon/windowsContents/project/sass-icon.svg",
     "/icon/windowsContents/project/supabase-icon.svg",
-    "/icon/windowsContents/project/typescript-icon.svg",
+    "/icon/windowsContents/project/nextjs-icon.svg",
     "/icon/windowsContents/project/vite-icon.png",
 
     //Contato

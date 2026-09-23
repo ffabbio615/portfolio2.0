@@ -1,8 +1,148 @@
-.project-details-container{
-    display: flex;
-    flex-direction: column;
+@use '../../../../../../App.scss' as *;
+
+.project-main-container{
+    @include default-window-active-content();
+
+    .project-general-container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 32px;
+
+        .project-general-title{
+            @include font-config($fbold, $fc42px, $fdisplay, $neutral-color-dark-gray, 1);
+            margin: 16px 0 0 0;
+        }
+
+        .project-card{
+            width: 100%;
+            box-shadow: 0 0 10px rgba($neutral-color-medium-gray, 0.15);
+            border-radius: 12px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            user-select: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover{
+                transform: scale(1.02);
+                box-shadow: 0 0 20px rgba($neutral-color-medium-gray, 0.3);
+            }
+
+            .project-card-image-container{
+                display: flex;
+                justify-content: center;
+                flex: 1;
+
+                .project-card-image{
+                    min-width: 220px;
+                    width: 90%;
+                    max-width: 400px;
+                }
+            }
+
+
+            .project-card-content{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 20px;
+
+                .project-card-title{
+                    @include font-config($fbold, $fc32px, $fdisplay, $neutral-color-dark-gray, 1);
+                    text-align: center;
+                }
     
-    .project-details-image{
-        width: 300px;
+                .project-card-technologies{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    justify-content: center;
+                    padding-inline: 12px;
+                    width: 90%;
+    
+                    .project-card-technology-icon{
+                        height: 24px;
+                    }
+                }
+
+                .btn-project-card{
+                    text-decoration: none;
+                    width: 200px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: clamp(12px, 2vw + 4px, 32px);
+                    background-color: $neutral-color-dark-gray;
+                    @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
+                    letter-spacing: 0.8px;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+            
+                    &:hover{
+                        background-color: $neutral-color-black;
+                    }
+                }
+            }
+        }
+        
+    }
+
+    .project-details-container{
+        display: flex;
+        flex-direction: column;
+
+        .project-details-back{
+
+        }
+        
+        .project-details-image{
+            width: 300px;
+        }
+
+        .project-details-content{
+
+            .project-details-title{
+
+            }
+
+            .project-details-category{
+
+            }
+
+            .project-details-description{
+
+            }
+
+            .project-details-functionalities{
+
+            }
+
+            .project-details-features{
+
+            }
+
+            .project-details-technologies-title{
+
+            }
+
+            .project-details-technologies{
+
+                .technology{
+
+                }
+            }
+
+            .project-details-links{
+
+                a{
+                    
+                }
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@
         text-align: center;
         
         .curriculum-title{
-            @include font-config($fbold, $cplusPX, $fdisplay, $neutral-color-dark-gray, 1);
+            @include font-config($fbold, $fc42px, $fdisplay, $neutral-color-dark-gray, 1);
         }
     
         .curriculum-description{
