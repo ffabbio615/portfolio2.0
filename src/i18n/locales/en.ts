@@ -149,6 +149,106 @@ export const en = {
 
 
 
+    projects: {
+        general: {
+            title: "Some of My Projects",
+            description: "Learn more about each project or access all of their GitHub repositories on the side",
+            learnMore: "Learn more",
+            projectImageAlt: "{{name}} project image"
+        },
+
+        details: {
+            back: "← Back",
+            projectImageAlt: "{{name}} project image",
+            functionalityIconAlt: "Functionalities icon",
+            functionalities: "Functionalities:",
+            technologyIconAlt: "Technologies icon",
+            technologies: "Technologies:",
+            openProject: "Open Project",
+            github: "GitHub",
+            githubFrontend: "GitHub Front-end",
+            githubBackend: "GitHub Back-end",
+
+            "pronto-abrigo": {
+                category: "Full Stack Application",
+                description: "Platform developed to make it easier to locate shelters and make reservations.",
+                features: [
+                    "Nearby shelter locations",
+                    "User geolocation",
+                    "Distance calculation",
+                    "Reservations with automatic expiration",
+                    "User authentication",
+                    "Map integration"
+                ]
+            },
+
+            "prime-language-school": {
+                category: "Professional Landing Page",
+                description: "Website developed for Prime Language School, focusing on service presentation, user experience, and visual identity.",
+                features: [
+                    "Responsive interface",
+                    "Course presentation",
+                    "FAQ",
+                    "Certificate generation",
+                    "Custom visual identity"
+                ]
+            },
+
+            "medicos-dentistas": {
+                category: "Full Stack Application",
+                description: "Full Stack application developed as a course project for managing volunteer professionals in the medical and dental fields.",
+                features: [
+                    "Professional registration",
+                    "Doctors and dentists listing",
+                    "Editing registered data",
+                    "Record deletion",
+                    "Front-end and API integration",
+                    "Data persistence"
+                ]
+            },
+
+            vocabary: {
+                category: "Full Stack Web Application",
+                description: "Application developed to support vocabulary learning and organisation, allowing users to register and review words during their studies.",
+                features: [
+                    "Word registration",
+                    "Vocabulary organisation",
+                    "User authentication",
+                    "Data storage",
+                    "Responsive interface"
+                ]
+            },
+
+            capiwaras: {
+                category: "Mobile Study Project",
+                description: "Project developed for Front-end development study and practice, with an interface specifically designed for mobile devices.",
+                features: [
+                    "Mobile First interface",
+                    "Responsive layout",
+                    "Interface componentisation",
+                    "Content navigation"
+                ]
+            },
+
+            "portfolio-2": {
+                category: "Full Stack Application",
+                description: "Interactive professional portfolio developed with an interface inspired by desktop operating systems, bringing together professional information, projects, CVs, and different contact options.",
+                features: [
+                    "Interactive desktop interface",
+                    "Window system",
+                    "Interactive folders and Dock",
+                    "Window movement and management",
+                    "Interface internationalisation",
+                    "Artificial Intelligence assistant",
+                    "Contact form integrated with the Back-end",
+                    "Responsive design"
+                ]
+            }
+        }
+    },
+
+
+
     contact: {
         title: "Contact Me",
         description: "Fill in the form below to send a message directly to my email.",

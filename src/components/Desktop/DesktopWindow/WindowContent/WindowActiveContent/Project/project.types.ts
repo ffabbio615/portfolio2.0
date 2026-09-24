@@ -1,4 +1,4 @@
-export type Reference = 
+export type Reference =
     "pronto-abrigo" |
     "prime-language-school" |
     "medicos-dentistas" |
@@ -17,9 +17,6 @@ export type DetailedProject = {
     image: string;
     name: string;
     reference: Reference;
-    category: string;
-    description: string;
-    features: string[];
     technologies: string[];
     projectUrl?: string;
     githubUrl?: string;

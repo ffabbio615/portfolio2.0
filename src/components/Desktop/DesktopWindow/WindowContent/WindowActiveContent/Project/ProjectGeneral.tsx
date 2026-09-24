@@ -1,13 +1,14 @@
 import "./Projects.scss";
+import { useTranslation } from "react-i18next";
 import type { GeneralProject, Reference } from "./project.types";
-
-
 
 type ProjectGeneralProps = {
    setSelectedProject: (project: Reference | null) => void;
 }
 
 export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProps){
+
+    const { t } = useTranslation();
 
     const projects: GeneralProject[] = [
         {
@@ -66,9 +67,10 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
     return(
         <div className="project-general-container">
             <div className="project-general-text-container">
-                <h4 className="project-general-title">Alguns de Meus Projetos</h4>
-                <span className="project-general-description">Saiba mais sobre cada projeto ou acesse o GitHub de todos ao lado</span>
+                <h4 className="project-general-title">{t("projects.general.title")}</h4>
+                <span className="project-general-description">{t("projects.general.description")}</span>
             </div>
+
             {
                 projects.map((project) => (
                     <div className="project-card" key={project.reference}>
@@ -76,7 +78,7 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
                         <div className={`project-card-footer-element ${project.reference}-color-element`}></div>
 
                         <div className="project-card-image-container">
-                            <img className="project-card-image" src={project.image} alt={`Imagem do projeto ${project.name}`} />
+                            <img className="project-card-image" src={project.image} alt={t("projects.general.projectImageAlt", { name: project.name })} />
                         </div>
 
                         <div className="project-card-content">
@@ -89,7 +91,7 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
                             </div>
 
                             <button className={`btn-project-card ${project.reference}-color-element`} type="button" onClick={() => setSelectedProject(project.reference)}>
-                                Saiba mais
+                                {t("projects.general.learnMore")}
                             </button>
                         </div>
                     </div>

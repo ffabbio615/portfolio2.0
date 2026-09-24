@@ -149,6 +149,106 @@ export const pt = {
 
 
 
+    projects: {
+        general: {
+            title: "Alguns de Meus Projetos",
+            description: "Saiba mais sobre cada projeto ou acesse o GitHub de todos ao lado",
+            learnMore: "Saiba mais",
+            projectImageAlt: "Imagem do projeto {{name}}"
+        },
+
+        details: {
+            back: "← Voltar",
+            projectImageAlt: "Imagem do projeto {{name}}",
+            functionalityIconAlt: "Ícone de Funcionalidades",
+            functionalities: "Funcionalidades:",
+            technologyIconAlt: "Ícone de Tecnologias",
+            technologies: "Tecnologias:",
+            openProject: "Abrir projeto",
+            github: "GitHub",
+            githubFrontend: "GitHub Front-end",
+            githubBackend: "GitHub Back-end",
+
+            "pronto-abrigo": {
+                category: "Aplicação Full Stack",
+                description: "Plataforma desenvolvida para facilitar a localização de abrigos e a realização de reservas.",
+                features: [
+                    "Localização de abrigos próximos",
+                    "Geolocalização do usuário",
+                    "Cálculo de distância",
+                    "Reservas com expiração automática",
+                    "Autenticação de usuários",
+                    "Integração com mapas"
+                ]
+            },
+
+            "prime-language-school": {
+                category: "Landing Page Profissional",
+                description: "Website desenvolvido para a Prime Language School, com foco em apresentação dos serviços, experiência do usuário e identidade visual.",
+                features: [
+                    "Interface responsiva",
+                    "Apresentação dos cursos",
+                    "FAQ",
+                    "Geração de certificados",
+                    "Identidade visual personalizada"
+                ]
+            },
+
+            "medicos-dentistas": {
+                category: "Aplicação Full Stack",
+                description: "Aplicação Full Stack desenvolvida como projeto de curso para gerenciamento de profissionais voluntários das áreas de medicina e odontologia.",
+                features: [
+                    "Cadastro de profissionais",
+                    "Listagem de médicos e dentistas",
+                    "Edição de dados cadastrados",
+                    "Exclusão de registros",
+                    "Integração entre Front-end e API",
+                    "Persistência de dados"
+                ]
+            },
+
+            vocabary: {
+                category: "Aplicação Web Fullstack",
+                description: "Aplicação desenvolvida para auxiliar no aprendizado e na organização de vocabulário, permitindo ao usuário registrar e consultar palavras durante seus estudos.",
+                features: [
+                    "Cadastro de palavras",
+                    "Organização de vocabulário",
+                    "Autenticação de usuários",
+                    "Armazenamento de dados",
+                    "Interface responsiva"
+                ]
+            },
+
+            capiwaras: {
+                category: "Projeto de Estudo Mobile",
+                description: "Projeto desenvolvido para estudo e prática de desenvolvimento Front-end, com interface criada especificamente para dispositivos móveis.",
+                features: [
+                    "Interface Mobile First",
+                    "Layout responsivo",
+                    "Componentização da interface",
+                    "Navegação entre conteúdos"
+                ]
+            },
+
+            "portfolio-2": {
+                category: "Aplicação Full Stack",
+                description: "Portfólio profissional interativo desenvolvido com uma interface inspirada em sistemas operacionais desktop, reunindo informações profissionais, projetos, currículos e diferentes formas de contato.",
+                features: [
+                    "Interface desktop interativa",
+                    "Sistema de janelas",
+                    "Pastas e Dock interativos",
+                    "Movimentação e gerenciamento de janelas",
+                    "Internacionalização da interface",
+                    "Assistente com Inteligência Artificial",
+                    "Formulário de contato integrado ao Back-end",
+                    "Design responsivo"
+                ]
+            }
+        }
+    },
+
+
+
     contact: {
         title: "Entre em Contato",
         description: "Preencha o formulário abaixo para enviar uma mensagem diretamente para o meu e-mail.",
