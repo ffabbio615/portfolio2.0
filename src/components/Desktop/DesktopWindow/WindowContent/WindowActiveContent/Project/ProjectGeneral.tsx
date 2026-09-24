@@ -72,6 +72,9 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
             {
                 projects.map((project) => (
                     <div className="project-card" key={project.reference}>
+                        <div className="project-card-hole-element"></div>
+                        <div className={`project-card-footer-element ${project.reference}-color-element`}></div>
+
                         <div className="project-card-image-container">
                             <img className="project-card-image" src={project.image} alt={`Imagem do projeto ${project.name}`} />
                         </div>
@@ -85,7 +88,7 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
                                 ))}
                             </div>
 
-                            <button className="btn-project-card" type="button" onClick={() => setSelectedProject(project.reference)}>
+                            <button className={`btn-project-card ${project.reference}-color-element`} type="button" onClick={() => setSelectedProject(project.reference)}>
                                 Saiba mais
                             </button>
                         </div>

@@ -28,6 +28,7 @@
 
         .project-card{
             width: 100%;
+            max-width: 1000px;
             box-shadow: 0 0 10px rgba($neutral-color-medium-gray, 0.15);
             border-radius: 12px;
             margin: 0 auto;
@@ -36,10 +37,69 @@
             align-items: center;
             user-select: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow-x: hidden;
 
             &:hover{
                 transform: scale(1.02);
                 box-shadow: 0 0 20px rgba($neutral-color-medium-gray, 0.3);
+            }
+
+            .project-card-hole-element{
+                width: 4.76%;
+                height: 12.56%;
+                border-radius: 50%;
+                border: 2px solid rgba($neutral-color-medium-gray, 0.15);
+                background-color: rgba($neutral-color-medium-gray, 0.05);
+                position: absolute;
+                right: -2.38%;
+                top: calc(50% - 6.28%);
+            }
+
+            .project-card-footer-element{
+                position: absolute;
+                height: 2.5%;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+            }
+
+            .pronto-abrigo-color-element{ 
+                background-color: $pronto-abrigo-color;
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $pronto-abrigo-color, #fff 10%);
+                }
+            }
+            .prime-language-school-color-element{ background-color: $prime-language-school-color;
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $prime-language-school-color, #fff 10%);
+                }
+            }
+            .medicos-dentistas-color-element{ background-color: $medicos-dentistas-color;
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $medicos-dentistas-color, #fff 10%);
+                }
+            }
+            .vocabary-color-element{ background-color: $vocabary-color;
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $vocabary-color, #fff 10%);
+                }
+            }
+            .capiwaras-color-element{ background-color: $capiwaras-color;
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $capiwaras-color, #fff 10%);
+                }
+            }
+            .portfolio-2-color-element{ background-color: $portfolio-2-color; 
+        
+                &:hover:not(.project-card-footer-element){
+                    background-color: color-mix(in srgb, $portfolio-2-color, #fff 10%);
+                }
             }
 
             .project-card-image-container{
@@ -56,9 +116,11 @@
 
             .project-card-content{
                 flex: 1;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 row-gap: 20px;
 
                 .project-card-title{
@@ -81,22 +143,25 @@
 
                 .btn-project-card{
                     text-decoration: none;
-                    min-width: 180px;
-                    width: 70%;
-                    max-width: 220px;
-                    min-height: 40px;
+                    min-width: 150px;
+                    width: 60%;
+                    max-width: 195px;
+                    min-height: 32px;
+                    height: 14%;
+                    max-height: 44px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     border-radius: clamp(12px, 2vw + 4px, 32px);
-                    background-color: $neutral-color-dark-gray;
+                    border: none;
                     @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
-                    letter-spacing: 0.8px;
+                    letter-spacing: 1px;
                     cursor: pointer;
-                    transition: background-color 0.2s ease;
-            
+                    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
                     &:hover{
-                        background-color: $neutral-color-black;
+                        box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.4);
+                        transform: scale(1.02);
                     }
                 }
             }
@@ -129,6 +194,7 @@
         .project-details-title-container{
             width: 100%;
             display: flex;
+            justify-content: center;
             align-items: center;
             margin-bottom: 4px;
 
@@ -149,6 +215,10 @@
 
         .project-details-description{
             @include font-config($fregular, $fc16px, $fdisplay, $neutral-color-medium-gray, 1);
+            margin: 0 auto;
+            text-align: center;
+            width: 80ch;
+            text-wrap-style: balance;
         }
 
         .project-details-content{
@@ -172,6 +242,7 @@
                 min-width: 230px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 flex-wrap: wrap;
 
                 .project-details-functionalities-container{
@@ -257,9 +328,11 @@
                     @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
                     letter-spacing: 0.8px;
                     cursor: pointer;
-                    transition: background-color 0.2s ease;
-            
+                    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
                     &:hover{
+                        box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.4);
+                        transform: scale(1.02);
                         background-color: $neutral-color-black;
                     }
                 }
