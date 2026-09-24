@@ -12,7 +12,7 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
     const projects: DetailedProject[] = [
         {
             image: "/image/project/pronto-abrigo-mockup.webp",
-            name: "ProntoAbrigo",
+            name: "Pronto-Abrigo",
             reference: "pronto-abrigo",
             category: "Aplicação Full Stack",
             description: "Plataforma desenvolvida para facilitar a localização de abrigos e a realização de reservas.",
@@ -82,7 +82,7 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
         },
         {
             image: "/image/project/capiwaras-mockup.webp",
-            name: "Capiwaras",
+            name: "CapiWaras",
             reference: "capiwaras",
             category: "Projeto de Estudo Mobile",
             description: "Projeto desenvolvido para estudo e prática de desenvolvimento Front-end, com interface criada especificamente para dispositivos móveis.",
@@ -113,7 +113,6 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
                 "Design responsivo"
             ],
             technologies: ["react", "typescript", "sass", "vite", "node", "express"],
-            projectUrl: "https://portfolio2-0-kappa-six.vercel.app/",
             githubUrl: "https://github.com/ffabbio615/portfolio2.0"
         }
     ];
@@ -124,42 +123,51 @@ export default function ProjectDetails({ reference, setSelectedProject }: Projec
 
     return (
         <div className="project-details-container">
-            <button className="project-details-back" type="button" onClick={() => setSelectedProject(null)}>Voltar aos projetos</button>
+            <button className="btn-project-details-back" type="button" onClick={() => setSelectedProject(null)}>← Voltar</button>
 
-            <img className="project-details-image" src={project.image} alt={`Imagem do projeto ${project.name}`} />
+            <div className="project-details-title-container">
+                <h4 className="project-details-title">{project.name}</h4>
+                <span className="project-details-category">{project.category}</span>
+            </div>
+
+            <p className="project-details-description">{project.description}</p>
 
             <div className="project-details-content">
-                <h4 className="project-details-title">{project.name}</h4>
+                <img className="project-details-image" src={project.image} alt={`Imagem do projeto ${project.name}`} />
 
-                <span className="project-details-category">Categoria: {project.category}</span>
+                <div className="project-details-text-container">
 
-                <p className="project-details-description">Descrição: {project.description}</p>
+                    <div className="project-details-functionalities-container">
+                        <h5 className="project-details-functionalities-title"><img className="project-details-functionalities-image" src="/icon/windowsContents/project/projectDetails/functionality-icon.svg" alt="Ícone de Funcionalidades" />
+                            Funcionalidades:
+                        </h5>
+                        <ul className="project-details-features">
+                            {project.features.map((feature) => (
+                                <li className="project-details-feature" key={feature}>{feature}</li>
+                            ))}
+                        </ul>
+                    </div>
 
-                <h5 className="project-details-functionalities">Principais funcionalidades:</h5>
+                    <div className="project-details-technologies-container">
+                        <h5 className="project-details-technologies-title"><img className="project-details-technologies-image" src="/icon/windowsContents/project/projectDetails/technology-icon.svg" alt="Ícone de Tecnologias" /> 
+                            Tecnologias:
+                        </h5>
+                        <div className="project-details-technologies">
+                            {project.technologies.map((technology) => (
+                                <span className="technology" key={technology}>{technology}</span>
+                            ))}
+                        </div>
+                    </div>
 
-                <ul className="project-details-features">
-                    {project.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
-                    ))}
-                </ul>
-
-                <h5 className="project-details-technologies-title">Tecnologias</h5>
-
-                <div className="project-details-technologies">
-                    {project.technologies.map((technology) => (
-                        <span className="technology" key={technology}>{technology}</span>
-                    ))}
                 </div>
 
                 <div className="project-details-links">
                     {project.projectUrl && <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">Abrir projeto</a>}
-
                     {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>}
-
                     {project.frontendGithubUrl && <a href={project.frontendGithubUrl} target="_blank" rel="noopener noreferrer">GitHub Front-end</a>}
-
                     {project.backendGithubUrl && <a href={project.backendGithubUrl} target="_blank" rel="noopener noreferrer">GitHub Back-end</a>}
                 </div>
+
             </div>
         </div>
     );

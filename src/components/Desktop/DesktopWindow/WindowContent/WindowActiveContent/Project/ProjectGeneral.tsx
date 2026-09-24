@@ -65,7 +65,10 @@ export default function ProjectGeneral({setSelectedProject} : ProjectGeneralProp
 
     return(
         <div className="project-general-container">
-            <h4 className="project-general-title">Alguns de Meus Projetos</h4>
+            <div className="project-general-text-container">
+                <h4 className="project-general-title">Alguns de Meus Projetos</h4>
+                <span className="project-general-description">Saiba mais sobre cada projeto ou acesse o GitHub de todos ao lado</span>
+            </div>
             {
                 projects.map((project) => (
                     <div className="project-card" key={project.reference}>

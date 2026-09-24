@@ -2,6 +2,8 @@
 
 .project-main-container{
     @include default-window-active-content();
+    padding-bottom: 32px;
+    position: relative;
 
     .project-general-container{
         width: 90%;
@@ -10,9 +12,18 @@
         align-items: center;
         row-gap: 32px;
 
-        .project-general-title{
-            @include font-config($fbold, $fc42px, $fdisplay, $neutral-color-dark-gray, 1);
-            margin: 16px 0 0 0;
+        .project-general-text-container{
+            width: 100%;
+            text-align: center;
+            margin: 16px 0 8px 0;
+
+            .project-general-title{
+                @include font-config($fbold, $fc42px, $fdisplay, $neutral-color-dark-gray, 1);
+            }
+    
+            .project-general-description{
+                @include font-config($fregular, $fc20px, $fdisplay, $neutral-color-dark-gray, 1);
+            }
         }
 
         .project-card{
@@ -43,7 +54,6 @@
                 }
             }
 
-
             .project-card-content{
                 flex: 1;
                 display: flex;
@@ -71,8 +81,10 @@
 
                 .btn-project-card{
                     text-decoration: none;
-                    width: 200px;
-                    height: 40px;
+                    min-width: 180px;
+                    width: 70%;
+                    max-width: 220px;
+                    min-height: 40px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -93,54 +105,186 @@
     }
 
     .project-details-container{
+        width: 90%;
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
+        padding-top: 24px;
+        margin: auto 0;
 
-        .project-details-back{
+        .btn-project-details-back{
+            @include font-config($fregular, $fc18px, $fdisplay, $neutral-color-dark-gray, 1);
+            border: none;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: none;
+            cursor: pointer;
 
+            &:hover{
+                text-decoration: underline;
+            }
         }
         
-        .project-details-image{
-            width: 300px;
+        .project-details-title-container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+
+            .project-details-title{
+                @include font-config($fbold, $fc36px, $fdisplay, $neutral-color-dark-gray, 1);
+
+                &::after{
+                    content: "|";
+                    @include font-config($fsemiBold, $fc36px, $fdisplay, $neutral-color-dark-gray, 1);
+                    padding-inline: 8px;
+                }
+            }
+            
+            .project-details-category{
+                @include font-config($fregular, $fc28px, $fdisplay, $neutral-color-medium-gray, 1);
+            }
+        }
+
+        .project-details-description{
+            @include font-config($fregular, $fc16px, $fdisplay, $neutral-color-medium-gray, 1);
         }
 
         .project-details-content{
-
-            .project-details-title{
-
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5%;
+            row-gap: 24px;
+            margin-top: 12px;
+            
+            .project-details-image{
+                width: 60%;
+                min-width: 400px;
+                margin: 0 auto;
             }
 
-            .project-details-category{
+            .project-details-text-container{
+                width: 35%;
+                min-width: 230px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
 
-            }
+                .project-details-functionalities-container{
+                    width: 40%;
+                    min-width: 230px;
 
-            .project-details-description{
+                    .project-details-functionalities-title{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 4px;
+                        @include font-config($fsemiBold, $fc20px, $fdisplay, $neutral-color-medium-gray, 1);
+                        margin-bottom: 8px;
+    
+                        .project-details-functionalities-image{
+                            height: 28px;
+                        }
+                    }
+        
+                    .project-details-features{
+                        padding-left: 36px;
+                        margin-bottom: 20px;
+    
+                        .project-details-feature{
+                            @include font-config($fregular, $fc15px, $fdisplay, $neutral-color-medium-gray, 1);
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
 
-            }
+                .project-details-technologies-container{
+                    width: 40%;
+                    min-width: 230px;
 
-            .project-details-functionalities{
-
-            }
-
-            .project-details-features{
-
-            }
-
-            .project-details-technologies-title{
-
-            }
-
-            .project-details-technologies{
-
-                .technology{
-
+                    .project-details-technologies-title{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 4px;
+                        @include font-config($fsemiBold, $fc20px, $fdisplay, $neutral-color-medium-gray, 1);
+                        margin-bottom: 8px;
+    
+                        .project-details-technologies-image{
+                            height: 28px;
+                        }
+                    }
+        
+                    .project-details-technologies{
+                        display: flex;
+                        flex-wrap: wrap;
+                        column-gap: 4px;
+                        padding-left: 24px;
+        
+                        .technology{
+                            @include font-config($fregular, $fc15px, $fdisplay, $neutral-color-medium-gray, 1);
+                            text-transform: capitalize;
+                            line-height: 20px;
+    
+                            &:not(:last-of-type)::after{
+                                content: "|";
+                                padding-left: 4px;
+                            }
+                        }
+                    }
                 }
             }
 
             .project-details-links{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                column-gap: 16px;
 
                 a{
-                    
+                    text-decoration: none;
+                    min-width: 150px;
+                    width: 70%;
+                    max-width: 220px;
+                    min-height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: clamp(12px, 2vw + 4px, 32px);
+                    background-color: $neutral-color-dark-gray;
+                    @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
+                    letter-spacing: 0.8px;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+            
+                    &:hover{
+                        background-color: $neutral-color-black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1599px){
+    .project-main-container{
+
+        .project-details-container{
+
+            .project-details-content{
+
+                .project-details-text-container{
+                    width: 100%;
+                    justify-content: center;
+                    align-items: start;
+                    column-gap: 2.5%;
+
+                    .project-details-functionalities-container,
+                    .project-details-technologies-container{
+                        width: 45%;
+                    }
                 }
             }
         }

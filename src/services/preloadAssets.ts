@@ -64,6 +64,9 @@ const images = [
     "/icon/windowsContents/project/supabase-icon.svg",
     "/icon/windowsContents/project/nextjs-icon.svg",
     "/icon/windowsContents/project/vite-icon.png",
+    //Ícones de Project Details
+    "/icon/windowsContents/project/projectDetails/functionality-icon.svg",
+    "/icon/windowsContents/project/projectDetails/technology-icon.svg",
 
     //Contato
     "/icon/windowsContents/contact/dots-loading.gif",
