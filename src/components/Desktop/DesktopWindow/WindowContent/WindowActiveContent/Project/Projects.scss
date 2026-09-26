@@ -328,11 +328,12 @@
                     @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
                     letter-spacing: 0.8px;
                     cursor: pointer;
+                    transform: scale(0.95);
                     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
                     &:hover{
                         box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.4);
-                        transform: scale(1.02);
+                        transform: scale(1);
                         background-color: $neutral-color-black;
                     }
                 }

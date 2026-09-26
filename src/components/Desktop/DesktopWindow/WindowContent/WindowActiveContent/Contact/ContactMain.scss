@@ -7,6 +7,7 @@
 
     .contact-main-text-container{
         width: 90%;
+        max-width: 1000px;
         text-align: center;
         
         .contact-title{
@@ -21,6 +22,7 @@
     .contact-form{
         flex: 1;
         width: 80%;
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
         row-gap: 16px;
@@ -62,14 +64,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: none;
             border-radius: clamp(12px, 2vw + 4px, 32px);
             background-color: $neutral-color-dark-gray;
             @include font-config($fmedium, $fc15px, $fdisplay, $neutral-color-white, 1);
             letter-spacing: 0.8px;
             cursor: pointer;
-            transition: background-color 0.2s ease;
-    
+            transform: scale(0.95);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            
             &:hover{
+                box-shadow: 0 0 10px rgba($neutral-color-dark-gray, 0.4);
+                transform: scale(1);
                 background-color: $neutral-color-black;
             }
         }
